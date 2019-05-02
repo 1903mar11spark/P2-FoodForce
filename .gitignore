@@ -134,5 +134,6 @@ testem.log
 
 #jave properties
 *.prop
+*.properties
 
 # End of https://www.gitignore.io/api/angular
