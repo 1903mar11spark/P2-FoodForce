@@ -3,4 +3,24 @@
   <groupId>com.revature</groupId>
   <artifactId>FoodForce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+		<maven.complier.source>1.8</maven.complier.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.4.0.Final</version>
+		</dependency>
+	</dependencies>
+  
+  
 </project>
