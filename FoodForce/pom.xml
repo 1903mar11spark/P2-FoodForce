@@ -3,6 +3,8 @@
   <groupId>com.revature</groupId>
   <artifactId>FoodForce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
   
   <properties>
 		<maven.complier.source>1.8</maven.complier.source>
