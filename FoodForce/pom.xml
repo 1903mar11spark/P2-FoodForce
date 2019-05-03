@@ -4,12 +4,14 @@
   <artifactId>FoodForce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  <url>http://maven.apache.org</url>
+  
   
   
   <properties>
 		<maven.complier.source>1.8</maven.complier.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
+  </properties>
 
 	<dependencies>
 		<dependency>
