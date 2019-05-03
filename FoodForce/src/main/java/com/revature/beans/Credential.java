@@ -12,8 +12,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Credential")
 public class Credential {
-
 	
+
 	
 	public Credential() {
 		super();
@@ -30,7 +30,7 @@ public class Credential {
 	@Id // indicates a primary key
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "credentialSequence")
 	@SequenceGenerator(allocationSize = 1, name = "credentialSequence", sequenceName = "SQ_CREDENTIAL_PK")
-	@Column(name = "CREDENTIAL_ID")
+	@Column(name = "CREDENTIALID")
 	protected int id;
 	
 	@Column(name = "USERNAME")
