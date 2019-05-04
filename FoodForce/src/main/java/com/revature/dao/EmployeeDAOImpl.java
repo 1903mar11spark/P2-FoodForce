@@ -1,6 +1,10 @@
 package com.revature.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
+import org.hibernate.Transaction;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,18 +17,28 @@ import com.revature.beans.Employee;
 @Transactional
 public class EmployeeDAOImpl implements EmployeeDAO {
 
-	private SessionFactory sessionFactory;
+private SessionFactory sessionFactory;
 	
 	@Autowired // Constructor injection
 	public EmployeeDAOImpl(SessionFactory sessionFactory) {
-		org.springframework.orm.hibernate5.LocalSessionFactoryBean x;
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public Employee getEmployeeById(int id) {
-		Session currentSession = sessionFactory.getCurrentSession();
-        Employee emp = currentSession.get(Employee.class, id);
-        return emp;
+//	public Employee getEmployeeById(int id) {
+//		Session currentSession = sessionFactory.getCurrentSession();
+//        Employee emp = currentSession.get(Employee.class, id);
+//        return emp;
+//	}
+	
+	
+	@Override
+	public List<Employee> allEmployees() {
+		List<Employee> emp = new ArrayList<>();
+		try (Session s = sessionFactory.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			emp = s.createQuery("from Author").getResultList();
+			tx.commit();
+		}
+		return emp;
 	}
-
 }
