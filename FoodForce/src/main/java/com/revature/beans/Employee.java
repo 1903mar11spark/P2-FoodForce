@@ -11,8 +11,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name = "Employee")
+@Component
 public class Employee {
 	
 	public Employee() {
