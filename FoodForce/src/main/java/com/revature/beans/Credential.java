@@ -19,12 +19,11 @@ public class Credential {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Credential(int id, String username, String password, UserType userType) {
+	public Credential(int id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.userType = userType;
 	}
 	
 	@Id // indicates a primary key
@@ -38,10 +37,6 @@ public class Credential {
 	
 	@Column(name = "PASSWORD")
 	protected String password;
-	
-	@Enumerated
-    @Column(columnDefinition = "integer")
-	protected UserType userType;
 	
 	public int getId() {
 		return id;
@@ -61,17 +56,13 @@ public class Credential {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public UserType getUserType() {
-		return userType;
-	}
-	public void setUserType(UserType userType) {
-		this.userType = userType;
-	}
 	@Override
 	public String toString() {
-		return "Credential [id=" + id + ", username=" + username + ", password=" + password + ", userType=" + userType
-				+ "]";
+		return "Credential [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
+	
+
+	
 	
 	
 }

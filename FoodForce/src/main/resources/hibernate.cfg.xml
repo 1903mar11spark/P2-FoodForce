@@ -16,11 +16,13 @@
 		<!-- convenience for development -->
 		<property name="hibernate.show_sql">true</property>
 		<!-- choose whether to start fresh or update existing ddl -->
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
 		<mapping class="com.revature.beans.Credential"></mapping>
 		<mapping class="com.revature.beans.Customer"></mapping>
 		<mapping class="com.revature.beans.Employee"></mapping>
 		<mapping class="com.revature.beans.Order"></mapping>
+		<mapping class="com.revature.beans.Food"></mapping>
+		<mapping class="com.revature.beans.FoodOrder"></mapping>
 			
 	</session-factory>
 </hibernate-configuration>
