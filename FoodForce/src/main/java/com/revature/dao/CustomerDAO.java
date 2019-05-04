@@ -1,9 +1,9 @@
 package com.revature.dao;
 
-public class CustomerDAO {
+import com.revature.beans.Customer;
 
-	public CustomerDAO() {
-		// TODO Auto-generated constructor stub
-	}
+public interface CustomerDAO {
+
+	public Customer getCustomerById(int id);
 
 }
