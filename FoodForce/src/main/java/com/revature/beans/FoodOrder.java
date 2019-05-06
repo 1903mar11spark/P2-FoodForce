@@ -11,9 +11,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name = "FoodOrder")
-public class FoodOrders {
+@Component
+public class FoodOrder {
 
 	
 	@Id // indicates a primary key
@@ -30,12 +33,12 @@ public class FoodOrders {
 	@JoinColumn(name = "ORDERID")
 	protected Order order;
 	
-	public FoodOrders() {
+	public FoodOrder() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public FoodOrders(int id, Food food, Order order) {
+	public FoodOrder(int id, Food food, Order order) {
 		super();
 		this.id = id;
 		this.food = food;

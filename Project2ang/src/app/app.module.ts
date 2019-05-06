@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+
+//Components
 import { AppComponent } from './app.component';
+
 import { LoginComponent } from './login/login.component';
 import { EmployeeMainComponent } from './employee-main/employee-main.component';
 import { MyInfoComponent } from './my-info/my-info.component';
@@ -17,9 +20,14 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MenuPizzaComponent } from './menu-pizza/menu-pizza.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 
+import { LoginFormComponent } from './login-form/login-form.component';
+import { FooterComponent } from './footer/footer.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+
     LoginComponent,
     EmployeeMainComponent,
     MyInfoComponent,
@@ -33,6 +41,10 @@ import { CheckOutComponent } from './check-out/check-out.component';
     ContactUsComponent,
     MenuPizzaComponent,
     CheckOutComponent
+
+    LoginFormComponent,
+    FooterComponent
+
   ],
   imports: [
     BrowserModule,
