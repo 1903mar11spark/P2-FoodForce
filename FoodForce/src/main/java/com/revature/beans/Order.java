@@ -1,5 +1,9 @@
 package com.revature.beans;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -51,6 +57,14 @@ public class Order {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "EMPLOYEEID")
 	protected Employee employee;
+	
+	@ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+        name = "FoodOrder", 
+        joinColumns = { @JoinColumn(name = "ORDERID") }, 
+        inverseJoinColumns = { @JoinColumn(name = "FOODID") }
+    )
+	protected Set<Food> food = new HashSet<Food>();
 	
 	public int getId() {
 		return id;
