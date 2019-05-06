@@ -19,10 +19,10 @@ public class EmployeeService {
 		this.edao = ed;
 	}
 
-//	public Employee getEmployeeById(int id) {
-//		return edao.getEmployeeById(id);
-//		
-//	}
+	public Employee getEmployeeById(int id) {
+		return edao.getEmployeeById(id);
+		
+	}
 	
 	public List<Employee> allEmployees() {
 		return edao.allEmployees();
