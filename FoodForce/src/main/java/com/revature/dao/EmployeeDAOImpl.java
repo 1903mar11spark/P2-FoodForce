@@ -24,11 +24,11 @@ private SessionFactory sessionFactory;
 		this.sessionFactory = sessionFactory;
 	}
 	
-//	public Employee getEmployeeById(int id) {
-//		Session currentSession = sessionFactory.getCurrentSession();
-//        Employee emp = currentSession.get(Employee.class, id);
-//        return emp;
-//	}
+	public Employee getEmployeeById(int id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+        Employee emp = currentSession.get(Employee.class, id);
+        return emp;
+	}
 	
 	
 	@Override
