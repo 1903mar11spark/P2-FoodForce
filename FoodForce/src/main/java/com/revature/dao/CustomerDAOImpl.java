@@ -11,4 +11,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return null;
 	}
 
+	@Override
+	public Customer getCustomerByCredentials(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

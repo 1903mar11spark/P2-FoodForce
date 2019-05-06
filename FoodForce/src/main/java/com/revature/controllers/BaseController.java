@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.revature.beans.Employee;
@@ -16,21 +17,31 @@ import com.revature.service.EmployeeService;
 
 @Controller
 @RequestMapping("/")
-public class HomeController {
+public class BaseController {
 
-	@Autowired
 	private EmployeeService eserv;
 	
-	public HomeController(EmployeeService eserv) {
+	@Autowired
+	public BaseController(EmployeeService eserv) {
 		this.eserv = eserv;
 	}
 	
-//	@GetMapping("/")
-//	public String home() {
-//		Employee e = empDao.getEmployeeById(1);
-//		System.out.println(e);
-//		return "home";
-//	}
+	@GetMapping("/")
+	public String home() {
+		Employee emp = eserv.getEmployeeById(1);
+		System.out.println(emp);
+		return "home";
+	}
+	
+	@GetMapping(value="/{id}")
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
+		Employee emp = eserv.getEmployeeById(id);
+		if (emp == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(emp, HttpStatus.OK);
+		}
+	}
 	
 	@GetMapping(value="/")
 	public ResponseEntity<List<Employee>> allEmployees() {
