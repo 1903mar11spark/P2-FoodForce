@@ -40,8 +40,7 @@ import { FooterComponent } from './footer/footer.component';
     CustOrderHistoryComponent,
     ContactUsComponent,
     MenuPizzaComponent,
-    CheckOutComponent
-
+    CheckOutComponent,
     LoginFormComponent,
     FooterComponent
 
