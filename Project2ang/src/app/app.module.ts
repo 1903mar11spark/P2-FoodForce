@@ -24,6 +24,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
 
 
+//Services
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +46,7 @@ import { FooterComponent } from './footer/footer.component';
 
     LoginFormComponent,
     FooterComponent
-
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule

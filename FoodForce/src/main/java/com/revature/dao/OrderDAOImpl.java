@@ -18,6 +18,7 @@ import com.revature.beans.Order;
 @Transactional
 public class OrderDAOImpl implements OrderDAO {
 	
+	
 	private SessionFactory sessionFactory;
 
 	@Autowired
@@ -27,7 +28,7 @@ public class OrderDAOImpl implements OrderDAO {
 	
 
 	@Override
-	public boolean createOrder(float total, int customerId, int employeeId) {
+	public boolean createOrder(Order order) {
 		
 		return false;
 	}
@@ -35,23 +36,40 @@ public class OrderDAOImpl implements OrderDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Order> getCustomerOrders(int customerId) {
+		
 		List<Order> orders = new ArrayList<>();
-		try(Session s = sessionFactory.getCurrentSession()){
+		
+		Session s = sessionFactory.getCurrentSession();
 		Transaction tx = s.beginTransaction();
 		orders= s.createQuery("from orders").getResultList();
 		tx.commit();
-		}
+		
 		return orders;
 	}
 
 	@Override
-	public Order updateStatus(int orderId, String status) {
+	public Order updateStatus(Order order) {
 		
 		return null;
 	}
 
 	@Override
-	public Order updateTotal(int orderId, float total) {
+	public Order updateTotal(Order order) {
+		
+//		
+//		Session s = sessionFactory.getCurrentSession();
+//		Transaction tx = s.beginTransaction(); 
+//			
+//		//order = s.get(Order.class, orderId);
+//		//s.update(Order.class, total);
+//		tx.commit(); 
+//			
+	return null;
+	}
+
+
+	@Override
+	public Order deleteOrder(Order order) {
 		
 		return null;
 	}
