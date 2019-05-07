@@ -17,31 +17,32 @@ import com.revature.service.EmployeeService;
 
 @Controller
 @RequestMapping("/")
-public class BaseController {
-
+public class HomeController {
+	
+	@Autowired
 	private EmployeeService eserv;
 	
 	@Autowired
-	public BaseController(EmployeeService eserv) {
+	public HomeController(EmployeeService eserv) {
 		this.eserv = eserv;
 	}
 	
-	@GetMapping("/")
-	public String home() {
-		Employee emp = eserv.getEmployeeById(1);
-		System.out.println(emp);
-		return "home";
-	}
+//	@GetMapping("/")
+//	public String home() {
+//		Employee emp = eserv.getEmployeeById(1);
+//		System.out.println(emp);
+//		return "home";
+//	}
 	
-	@GetMapping(value="/{id}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
-		Employee emp = eserv.getEmployeeById(id);
-		if (emp == null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		} else {
-			return new ResponseEntity<>(emp, HttpStatus.OK);
-		}
-	}
+//	@GetMapping(value="/{id}")
+//	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
+//		Employee emp = eserv.getEmployeeById(id);
+//		if (emp == null) {
+//			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+//		} else {
+//			return new ResponseEntity<>(emp, HttpStatus.OK);
+//		}
+//	}
 	
 	@GetMapping(value="/")
 	public ResponseEntity<List<Employee>> allEmployees() {

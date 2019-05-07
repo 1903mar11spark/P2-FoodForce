@@ -10,26 +10,30 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.revature.beans.Employee;
 
 @Repository
 @Transactional
+@EnableTransactionManagement(proxyTargetClass = true)
 public class EmployeeDAOImpl implements EmployeeDAO {
 
-private SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
+
+
 	
 	@Autowired // Constructor injection
 	public EmployeeDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 	
+	@Override
 	public Employee getEmployeeById(int id) {
 		Session currentSession = sessionFactory.getCurrentSession();
         Employee emp = currentSession.get(Employee.class, id);
         return emp;
 	}
-	
 	
 	@Override
 	public List<Employee> allEmployees() {
