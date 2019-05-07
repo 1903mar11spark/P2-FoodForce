@@ -18,18 +18,20 @@ import com.revature.beans.Employee;
 public class EmployeeDAOImpl implements EmployeeDAO {
 
 private SessionFactory sessionFactory;
+
+
 	
 	@Autowired // Constructor injection
 	public EmployeeDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 	
+	@Override
 	public Employee getEmployeeById(int id) {
 		Session currentSession = sessionFactory.getCurrentSession();
         Employee emp = currentSession.get(Employee.class, id);
         return emp;
 	}
-	
 	
 	@Override
 	public List<Employee> allEmployees() {
