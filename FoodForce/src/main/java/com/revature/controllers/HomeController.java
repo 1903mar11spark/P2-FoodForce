@@ -18,7 +18,8 @@ import com.revature.service.EmployeeService;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-
+	
+	@Autowired
 	private EmployeeService eserv;
 	
 	@Autowired

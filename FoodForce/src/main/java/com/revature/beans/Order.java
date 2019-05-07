@@ -60,10 +60,9 @@ public class Order {
 	
 	@ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
-        name = "FoodOrder", 
+        name = "FOODORDER", 
         joinColumns = { @JoinColumn(name = "ORDERID") }, 
-        inverseJoinColumns = { @JoinColumn(name = "FOODID") }
-    )
+        inverseJoinColumns = { @JoinColumn(name = "FOODID") })
 	protected Set<Food> food = new HashSet<Food>();
 	
 	public int getId() {
