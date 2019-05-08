@@ -25,7 +25,7 @@ public class LoginController {
 		
 	}
 	
-	//user object mapper jackson to return id of person logging in
+	//use object mapper jackson to return id of person logging in
 //	@PostMapping("/")
 //	public ResponseEntity<>login(@RequestBody Credential cred) {
 //		Credential cred = credserv.getCredentialById(id);

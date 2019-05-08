@@ -28,9 +28,9 @@ public class OrderDAOImpl implements OrderDAO {
 	
 
 	@Override
-	public boolean createOrder(Order order) {
-		
-		return false;
+	public void createOrder(Order order) {
+		sessionFactory.getCurrentSession().persist(order);
+
 	}
 
 	@SuppressWarnings("unchecked")
