@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 
 
 @Entity
-@Table(name = "Order")
+@Table(name = "Orders")
 @Component
 public class Order {
 	
