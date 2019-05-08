@@ -3,6 +3,8 @@ package com.revature.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.beans.Credential;
+import com.revature.beans.Employee;
 import com.revature.dao.CredentialDAO;
 import com.revature.dao.CredentialDAOImpl;
 
@@ -17,6 +19,11 @@ public class CredentialService {
 	@Autowired
 	public CredentialService(CredentialDAOImpl cred) {
 		this.creddao = cred;
+	}
+	
+	public Credential getCredentialById(int id) {
+		return creddao.getCredentialById(id);
+		
 	}
 
 }
