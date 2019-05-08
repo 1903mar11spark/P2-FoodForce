@@ -22,17 +22,16 @@ public class HomeController {
 	@Autowired
 	private EmployeeService eserv;
 	
-	@Autowired
-	public HomeController(EmployeeService eserv) {
-		this.eserv = eserv;
-	}
-	
-//	@GetMapping("/")
-//	public String home() {
-//		Employee emp = eserv.getEmployeeById(1);
-//		System.out.println(emp);
-//		return "home";
+//	public HomeController(EmployeeService eserv) {
+//		this.eserv = eserv;
 //	}
+	
+	@GetMapping("/")
+	public String home() {
+		Employee emp = eserv.getEmployeeById(1);
+		System.out.println(emp);
+		return "home";
+	}
 	
 //	@GetMapping(value="/{id}")
 //	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
@@ -43,10 +42,10 @@ public class HomeController {
 //			return new ResponseEntity<>(emp, HttpStatus.OK);
 //		}
 //	}
-	
-	@GetMapping(value="/")
-	public ResponseEntity<List<Employee>> allEmployees() {
-		return new ResponseEntity<>(eserv.allEmployees(), HttpStatus.OK);
-	}
+//	
+//	@GetMapping(value="/")
+//	public ResponseEntity<List<Employee>> allEmployees() {
+//		return new ResponseEntity<>(eserv.allEmployees(), HttpStatus.OK);
+//	}
 
 }

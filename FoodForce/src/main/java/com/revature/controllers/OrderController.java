@@ -16,7 +16,7 @@ import com.revature.beans.Order;
 import com.revature.service.OrderService;
 
 @RestController //combines Controller and Request Body
-@RequestMapping(value = "/order")
+@RequestMapping(value = "/order/")
 public class OrderController {
 	
 	
