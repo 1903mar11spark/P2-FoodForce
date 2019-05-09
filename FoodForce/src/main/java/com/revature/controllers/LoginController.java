@@ -13,7 +13,7 @@ import com.revature.beans.Employee;
 import com.revature.service.EmployeeService;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping(value = "/login")
 public class LoginController {
 
 //	@Autowired

@@ -9,20 +9,21 @@ public class CredentialDAOImpl implements CredentialDAO {
 	private SessionFactory sessionFactory;
 
 	
-	public CredentialDAOImpl() {
+	public CredentialDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
+	//still trying to figure out this one
 	@Override
-	public Credential getCredentials(Credential cred) {
-		// TODO Auto-generated method stub
-		return null;
+	public Credential getCredentials(String username, String password) {
+		return sessionFactory.getCurrentSession().get(Credential.class, username);
+		
 	}
 
 	@Override
-	public Credential getCredentialById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Credential getCredentialsById(int id) {
+		return sessionFactory.getCurrentSession().get(Credential.class, id);
+		
 	}
 
 }
