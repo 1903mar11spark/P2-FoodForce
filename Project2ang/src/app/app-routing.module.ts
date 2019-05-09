@@ -16,7 +16,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
 
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'customer', component: CustomerMainComponent,
   children: [
     {path: 'info', component: MyInfoComponent},
@@ -49,4 +49,4 @@ const routes: Routes = [
 
 export class AppRoutingModule {}
 
-//this is for telling the code where to got when something is clicked
+//this is for telling the code where to go when something is clicked
