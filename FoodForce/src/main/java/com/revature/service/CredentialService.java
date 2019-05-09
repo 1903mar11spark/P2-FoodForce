@@ -22,7 +22,7 @@ public class CredentialService {
 	}
 	
 	public Credential getCredentialById(int id) {
-		return creddao.getCredentialById(id);
+		return creddao.getCredentialsById(id);
 		
 	}
 
