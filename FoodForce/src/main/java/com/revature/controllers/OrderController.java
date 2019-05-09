@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -69,18 +70,18 @@ public class OrderController {
 		return resp;
 	}
 	
-	@PutMapping
-	public ResponseEntity<String> updateTotal(@RequestBody Order order){
-		ResponseEntity<String> resp = null;
-		try {
-			orderService.updateTotal(order);
-			resp = new ResponseEntity<>("Total has been updated!", HttpStatus.OK);
-		}catch(Exception e) {
-			resp = new ResponseEntity<>("Failed to update order",HttpStatus.BAD_REQUEST);
-		}
-		return resp;
-	}
-	
+//	@PutMapping
+//	public ResponseEntity<String> updateTotal(@RequestBody Order order){
+//		ResponseEntity<String> resp = null;
+//		try {
+//			orderService.updateTotal(order);
+//			resp = new ResponseEntity<>("Total has been updated!", HttpStatus.OK);
+//		}catch(Exception e) {
+//			resp = new ResponseEntity<>("Failed to update order",HttpStatus.BAD_REQUEST);
+//		}
+//		return resp;
+//	}
+//	
 	@DeleteMapping
 	public ResponseEntity<String> deleteOrder(@RequestBody Order order){
 		ResponseEntity<String> resp = null;
@@ -93,9 +94,9 @@ public class OrderController {
 		return resp;
 	}
 	
-	
-	
-	
+//	
+//	
+//	
 	
 
 }

@@ -49,10 +49,10 @@ public class OrderDAOImpl implements OrderDAO {
 		sessionFactory.getCurrentSession().saveOrUpdate(order);
 	}
 
-	@Override
-	public void updateTotal(Order order) {
-		sessionFactory.getCurrentSession().saveOrUpdate(order);
-	}
+//	@Override
+//	public void updateTotal(Order order) {
+//		sessionFactory.getCurrentSession().saveOrUpdate(order);
+//	}
 	
 	@Override
 	public void deleteOrder(Order order) {
