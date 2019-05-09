@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.beans.Order;
 import com.revature.service.OrderService;
 
-@RestController //combines Controller and Request Body
+@RestController //combines Controller and Request Body. Not sure if RequestBody should go here
 @RequestMapping(value = "/order")
 public class OrderController {
 	
