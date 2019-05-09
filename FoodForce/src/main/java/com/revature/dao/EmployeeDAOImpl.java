@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
-import org.hibernate.Transaction;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,8 +19,6 @@ import com.revature.beans.Employee;
 public class EmployeeDAOImpl implements EmployeeDAO {
 
 	private SessionFactory sessionFactory;
-
-
 	
 	@Autowired // Constructor injection
 	public EmployeeDAOImpl(SessionFactory sessionFactory) {
@@ -35,14 +32,29 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return emp;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> allEmployees() {
 		List<Employee> emp = new ArrayList<>();
-		try (Session s = sessionFactory.getCurrentSession()) {
-			Transaction tx = s.beginTransaction();
-			emp = s.createQuery("from Author").getResultList();
-			tx.commit();
-		}
+		Session s = sessionFactory.getCurrentSession();
+		emp = s.createQuery("from Employee").getResultList();
 		return emp;
+	}
+
+	@Override
+	public void createEmployee(Employee empl) {
+		sessionFactory.getCurrentSession().persist(empl);
+		
+	}
+
+	@Override
+	public void updateEmployee(Employee empl) {
+		sessionFactory.getCurrentSession().saveOrUpdate(empl);
+		
+	}
+
+	@Override
+	public void deleteEmployee(Employee empl) {
+		sessionFactory.getCurrentSession().delete(empl);
 	}
 }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.revature.beans.Order;
 
 
-@Repository
+@Repository(value = "OrderDAO")
 @Transactional
 public class OrderDAOImpl implements OrderDAO {
 	
@@ -40,38 +40,24 @@ public class OrderDAOImpl implements OrderDAO {
 		List<Order> orders = new ArrayList<>();
 		
 		Session s = sessionFactory.getCurrentSession();
-		Transaction tx = s.beginTransaction();
-		orders= s.createQuery("from orders").getResultList();
-		tx.commit();
-		
+		orders= s.createQuery("from Orders").getResultList();
 		return orders;
 	}
 
 	@Override
-	public Order updateStatus(Order order) {
-		
-		return null;
+	public void updateStatus(Order order) {
+		sessionFactory.getCurrentSession().saveOrUpdate(order);
 	}
 
 	@Override
-	public Order updateTotal(Order order) {
-		
-//		
-//		Session s = sessionFactory.getCurrentSession();
-//		Transaction tx = s.beginTransaction(); 
-//			
-//		//order = s.get(Order.class, orderId);
-//		//s.update(Order.class, total);
-//		tx.commit(); 
-//			
-	return null;
+	public void updateTotal(Order order) {
+		sessionFactory.getCurrentSession().saveOrUpdate(order);
 	}
-
-
+	
 	@Override
-	public Order deleteOrder(Order order) {
+	public void deleteOrder(Order order) {
+		sessionFactory.getCurrentSession().delete(order);
 		
-		return null;
 	}
 
 }

@@ -8,9 +8,9 @@ public interface OrderDAO {
 
 	public void createOrder(Order order);
 	public List<Order> getCustomerOrders(int customerId);
-	public Order updateStatus(Order order);
-	public Order updateTotal(Order order);
-	public Order deleteOrder(Order order);
+	public void updateStatus(Order order);
+	public void updateTotal(Order order);
+	public void deleteOrder(Order order);
 	
 	
 }

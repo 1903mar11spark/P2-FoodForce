@@ -15,7 +15,7 @@ import com.revature.beans.Employee;
 import com.revature.service.CredentialService;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping(value = "/login")
 public class LoginController {
 
 	@Autowired

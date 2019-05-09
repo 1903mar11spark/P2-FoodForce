@@ -4,7 +4,7 @@ import com.revature.beans.Credential;
 
 public interface CredentialDAO {
 	
-	public Credential getCredentials(Credential cred);
-	public Credential getCredentialById(int id);
+	public Credential getCredentials(String username, String password);
+	public Credential getCredentialsById(int id);
 
 }
