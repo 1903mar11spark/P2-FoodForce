@@ -29,4 +29,10 @@ public class EmployeeService {
 	public List<Employee> allEmployees() {
 		return edao.allEmployees();
 	}
+	
+	public void createEmployee(Employee empl) {
+		edao.createEmployee(empl);
+	}
+	
+	
 }
