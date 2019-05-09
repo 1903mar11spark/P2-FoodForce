@@ -47,7 +47,7 @@ public class LoginController {
 	public String loggedin() {
 		Credential cr = credserv.getCredentialById(1);
 		System.out.println(cr);
-		return "login ";
+		return "login";
 	}
 	
 //	@GetMapping(value="/{id}")
