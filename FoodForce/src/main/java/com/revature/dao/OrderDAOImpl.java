@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.revature.beans.Order;
 
 
-@Repository
+@Repository(value = "OrderDAO")
 @Transactional
 public class OrderDAOImpl implements OrderDAO {
 	

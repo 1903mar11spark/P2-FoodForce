@@ -35,6 +35,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return emp;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> allEmployees() {
 		List<Employee> emp = new ArrayList<>();
