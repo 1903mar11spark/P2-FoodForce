@@ -21,8 +21,13 @@ public class CredentialService {
 		this.creddao = cred;
 	}
 	
-	public Credential getCredentialById(int id) {
-		return creddao.getCredentialById(id);
+	public Credential getCredentialsById(int id) {
+		return creddao.getCredentialsById(id);
+		
+	}
+	
+	public Credential newUserCredentials(String username, String password) {
+		return null;
 		
 	}
 
