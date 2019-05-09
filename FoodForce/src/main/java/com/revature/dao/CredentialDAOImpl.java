@@ -1,9 +1,16 @@
 package com.revature.dao;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.revature.beans.Credential;
 
+@Repository
+@Transactional
+@EnableTransactionManagement(proxyTargetClass = true)
 public class CredentialDAOImpl implements CredentialDAO {
 
 	private SessionFactory sessionFactory;
@@ -23,7 +30,6 @@ public class CredentialDAOImpl implements CredentialDAO {
 	@Override
 	public Credential getCredentialsById(int id) {
 		return sessionFactory.getCurrentSession().get(Credential.class, id);
-		
 	}
 
 }
