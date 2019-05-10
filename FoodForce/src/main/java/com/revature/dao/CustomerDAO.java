@@ -17,6 +17,7 @@ public interface CustomerDAO {
 	
 
 	public Customer getCustomerByCredentialId(int id);
+	Customer getCustomerByCredentials(String username, String password);
 	
 
 
