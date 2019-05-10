@@ -27,10 +27,10 @@ public class FoodController {
 	}
 
 	@GetMapping("/")
-	public String home() {
+	public List<Food> home() {
 		List<Food> food = foodService.getAllFood();
 		System.out.println(food);
-		return "home";
+		return food;
 	}
 	
 	
