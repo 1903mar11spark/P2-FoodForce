@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Customer;
-import com.revature.beans.Employee;
-import com.revature.beans.Food;
+import com.revature.entities.Customer;
+import com.revature.entities.Employee;
+import com.revature.entities.Food;
 import com.revature.beans.LoginResponse;
-import com.revature.beans.User;
+import com.revature.entities.User;
 import com.revature.dao.EmployeeDAO;
 import com.revature.dao.EmployeeDAOImpl;
 import com.revature.service.EmployeeService;

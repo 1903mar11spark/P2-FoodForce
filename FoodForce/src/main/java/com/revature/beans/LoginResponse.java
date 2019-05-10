@@ -1,5 +1,7 @@
 package com.revature.beans;
 
+import com.revature.entities.User;
+
 public class LoginResponse {
 
 	private String message;
