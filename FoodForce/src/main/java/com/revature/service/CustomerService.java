@@ -37,17 +37,17 @@ public class CustomerService {
 		
 	}
 	
-	public Customer getCustomerById(int id) {
-		return cdao.getCustomerById(id);
-	}
+//	public Customer getCustomerById(int id) {
+//		return cdao.getCustomerById(id);
+//	}
 
 
 	
 	
-	//get Customer by ID
-	public Customer getCustomerById(int id) {
-		return customerDAO.getCustomerById(id);
-	}
+//	//get Customer by ID
+//	public Customer getCustomerById(int id) {
+//		return customerDAO.getCustomerById(id);
+//	}
 	
 	//get all customers
 	public List<Customer> allCustomers(){
