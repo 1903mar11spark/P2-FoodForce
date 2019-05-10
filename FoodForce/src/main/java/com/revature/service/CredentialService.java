@@ -3,10 +3,10 @@ package com.revature.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.beans.Credential;
-import com.revature.beans.Employee;
 import com.revature.dao.CredentialDAO;
 import com.revature.dao.CredentialDAOImpl;
+import com.revature.entities.Credential;
+import com.revature.entities.Employee;
 
 
 

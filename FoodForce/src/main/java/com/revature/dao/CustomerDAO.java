@@ -1,6 +1,6 @@
 package com.revature.dao;
 
-import com.revature.beans.Customer;
+import com.revature.entities.Customer;
 
 public interface CustomerDAO {
 

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Employee;
-import com.revature.beans.Food;
+import com.revature.entities.Employee;
+import com.revature.entities.Food;
 import com.revature.service.FoodService;
 
 @RestController

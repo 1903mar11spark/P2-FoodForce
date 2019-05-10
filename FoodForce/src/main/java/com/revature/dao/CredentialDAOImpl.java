@@ -11,7 +11,7 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.revature.beans.Credential;
+import com.revature.entities.Credential;
 
 @Repository
 @Transactional

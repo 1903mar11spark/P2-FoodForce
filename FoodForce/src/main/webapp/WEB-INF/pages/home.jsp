@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.revature.beans.Employee" %>
+<%@ page import="com.revature.entities.Employee" %>
 <%@ page import="com.revature.service.EmployeeService" %>
     
     <!-- properties, libraries, server, add apache-tomcat to project -->

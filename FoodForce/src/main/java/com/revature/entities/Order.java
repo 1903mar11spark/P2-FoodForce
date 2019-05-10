@@ -1,4 +1,4 @@
-package com.revature.beans;
+package com.revature.entities;
 
 import java.util.HashSet;
 import java.util.Set;

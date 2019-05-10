@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.revature.beans.Credential;
-import com.revature.beans.Employee;
+import com.revature.entities.Credential;
+import com.revature.entities.Employee;
 
 @Repository
 @Transactional
