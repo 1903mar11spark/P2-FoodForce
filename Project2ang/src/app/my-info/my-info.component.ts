@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Order} from '../order';
-import {ORDERS} from '../test-orders';
+
 
 
 @Component({
@@ -9,7 +9,7 @@ import {ORDERS} from '../test-orders';
   styleUrls: ['./my-info.component.css']
 })
 export class MyInfoComponent implements OnInit {
-orders=ORDERS;
+
   constructor() { }
 
   ngOnInit() {
