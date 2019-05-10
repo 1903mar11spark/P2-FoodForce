@@ -22,10 +22,6 @@ public class CustomerService {
 	// 	this.cdao = cd;
 	// }
 	
-	public Customer getCustomerByCredentialId(int id) {
-		return cdao.getCustomerByCredentialId(id);
-		
-	}
 
 
 	
@@ -35,6 +31,12 @@ public class CustomerService {
 	public CustomerService(CustomerDAO customerDAO) {
 		this.customerDAO = customerDAO;
 	}
+	
+	public Customer getCustomerByCredentialId(int id) {
+		return customerDAO.getCustomerByCredentialId(id);
+		
+	}
+
 	
 	
 	//get Customer by ID
