@@ -23,7 +23,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 	
 	private SessionFactory sessionFactory;
 
-	private SessionFactory sessionFactory;
 
 	
 	public Customer getCustomerById(int id) {

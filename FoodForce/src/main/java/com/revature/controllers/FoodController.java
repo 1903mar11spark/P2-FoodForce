@@ -73,17 +73,17 @@ public class FoodController {
 			return new ResponseEntity<>(foodService.getAllFood(),HttpStatus.OK);
 	}
 	
-	@PostMapping
-	public ResponseEntity<String> updateFood(@RequestBody Food food){
-		ResponseEntity<String> resp = null;
-		try {
-			foodService.updateFood(food);
-			resp = new ResponseEntity<>("Food updated succesfully", HttpStatus.OK);
-		}catch(Exception e) {
-			resp = new ResponseEntity<>("Failed to update Food", HttpStatus.BAD_REQUEST);
-		}
-		return resp;
-	}
+//	@PostMapping
+//	public ResponseEntity<String> updateFood(@RequestBody Food food){
+//		ResponseEntity<String> resp = null;
+//		try {
+//			foodService.updateFood(food);
+//			resp = new ResponseEntity<>("Food updated succesfully", HttpStatus.OK);
+//		}catch(Exception e) {
+//			resp = new ResponseEntity<>("Failed to update Food", HttpStatus.BAD_REQUEST);
+//		}
+//		return resp;
+//	}
 	
 	@DeleteMapping
 	public ResponseEntity<String> deleteFood(@RequestBody Food food){
