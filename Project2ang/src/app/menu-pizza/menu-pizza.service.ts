@@ -8,7 +8,7 @@ const heetOptions = {
     headers: new HttpHeaders({  
         'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Access-Control-Allow-Headers': 'Content-Type'
+    'Access-Control-Allow-Origin' : '*'
     })
 } 
 
@@ -20,10 +20,10 @@ export class MenuPizzaService{
     constructor (private http:HttpClient){}
 
 
-    URL: string = 'localhost:8084/FoodForce/food/';
+    URL: string = 'localhost:8084/FoodForce/food/all/';
 
     getQuests(): Observable<Order>{
- 
+
         return this.http.get<Order>(this.URL, heetOptions);
     }
 }
