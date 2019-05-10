@@ -42,22 +42,21 @@ public class OrderDAOImpl implements OrderDAO {
 	@Override
 	public List<Order> getCustomerOrders(int customerId) {
 		try {
-			
-		
 		
 		Session session = sessionFactory.getCurrentSession();
 		CriteriaBuilder builder = session.getCriteriaBuilder();
 		CriteriaQuery<Order> query = builder.createQuery(Order.class);
 		Root<Order> root = query.from(Order.class);
-        query.select(root).where(builder.equal(root.get("order.customerid"), customerId));
+        query.select(root).where(builder.equal(root.get("customer"), customerId));
         
         Query<Order> q = session.createQuery(query);
-        Order o = q.getSingleResult();
-        return (List<Order>) o;	
+        List<Order> o = (List<Order>) q.list();
+        return o;	
         
 		} catch (Exception e) {
+		e.printStackTrace();
+		return null;
 	         
-	         return null;
 		}
 
 		
