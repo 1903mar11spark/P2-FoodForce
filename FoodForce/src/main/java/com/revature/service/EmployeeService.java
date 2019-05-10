@@ -34,5 +34,10 @@ public class EmployeeService {
 		edao.createEmployee(empl);
 	}
 	
+	public Employee getEmployeeByCredentialId(int id) {
+		return edao.getEmployeeById(id);
+		
+	}
+	
 	
 }

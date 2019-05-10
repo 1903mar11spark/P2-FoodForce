@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "Employee")
 @Component
-public class Employee {
+public class Employee implements User {
 	
 	public Employee() {
 		super();

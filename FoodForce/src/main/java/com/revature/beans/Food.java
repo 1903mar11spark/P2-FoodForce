@@ -14,7 +14,8 @@ import org.springframework.stereotype.Component;
 @Table(name = "Food")
 @Component
 public class Food {
-
+	
+	
 	
 	@Id // indicates a primary key
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "foodSequence")
@@ -32,9 +33,6 @@ public class Food {
 	protected String type;
 	
 	
-	public Food() {
-		super();
-	}
 	public int getId() {
 		return id;
 	}

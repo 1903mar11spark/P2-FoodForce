@@ -16,15 +16,11 @@ public class CredentialService {
 	@Autowired
 	private CredentialDAO creddao;
 	
-	@Autowired
-	public CredentialService(CredentialDAOImpl cred) {
-		this.creddao = cred;
-	}
 	
 
-	public Credential getCredentialsById(int id) {
-		return creddao.getCredentialsById(id);
-		
+	public Credential getCredentials(String un, String pw) {
+		return creddao.getCredentials(un, pw);		
+
 	}
 	
 	public Credential newUserCredentials(String username, String password) {

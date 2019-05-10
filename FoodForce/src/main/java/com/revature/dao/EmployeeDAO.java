@@ -11,5 +11,6 @@ public interface EmployeeDAO {
 	public void createEmployee(Employee empl);
 	public void updateEmployee(Employee empl);
 	public void deleteEmployee(Employee empl);
+	public Employee getEmployeeByCredentialId(int id);
 	
 }
