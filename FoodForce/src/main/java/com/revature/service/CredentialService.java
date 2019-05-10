@@ -17,12 +17,15 @@ public class CredentialService {
 	private CredentialDAO creddao;
 	
 	
+
 	public Credential getCredentials(String un, String pw) {
 		return creddao.getCredentials(un, pw);		
+
 	}
 	
 	public Credential newUserCredentials(String username, String password) {
 		return null;
+
 		
 	}
 

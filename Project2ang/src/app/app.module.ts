@@ -22,6 +22,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http'
 
 
 //Services
@@ -29,7 +30,6 @@ import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
-
     LoginComponent,
     EmployeeMainComponent,
     MyInfoComponent,
@@ -47,6 +47,7 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
     ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],

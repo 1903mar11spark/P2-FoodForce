@@ -9,11 +9,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.revature.beans.Food;
 
 @Repository(value = "FoodDAO")
 @Transactional
+@EnableTransactionManagement(proxyTargetClass = true)
 public class FoodDAOImpl implements FoodDAO {
 
 	private SessionFactory sessionFactory;
