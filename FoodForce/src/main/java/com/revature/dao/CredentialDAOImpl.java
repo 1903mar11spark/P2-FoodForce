@@ -32,4 +32,10 @@ public class CredentialDAOImpl implements CredentialDAO {
 		return sessionFactory.getCurrentSession().get(Credential.class, id);
 	}
 
+	@Override
+	public Credential newUserCredentials(String username, String password) {
+		
+		return null;
+	}
+
 }

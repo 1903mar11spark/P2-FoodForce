@@ -1,8 +1,13 @@
 package com.revature.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +39,48 @@ public class FoodController {
 		}
 		return resp;
 	}
+	
+	
+	@GetMapping(value = "/{type}")
+	public ResponseEntity<Food> getFoodByType (@PathVariable String type){
+		Food f = foodService.getFoodByType(type);
+		if(f == null) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}else {
+			return new ResponseEntity<>(f,HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping(value = "/all")
+	public ResponseEntity<List<Food>> getAllFood(){
+			return new ResponseEntity<>(foodService.getAllFood(),HttpStatus.OK);
+	}
+	
+	@PostMapping
+	public ResponseEntity<String> updateFood(@RequestBody Food food){
+		ResponseEntity<String> resp = null;
+		try {
+			foodService.updateFood(food);
+			resp = new ResponseEntity<>("Food updated succesfully", HttpStatus.OK);
+		}catch(Exception e) {
+			resp = new ResponseEntity<>("Failed to update Food", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
+	@DeleteMapping
+	public ResponseEntity<String> deleteFood(@RequestBody Food food){
+		ResponseEntity<String> resp = null;
+		try {
+			foodService.deleteFood(food);
+			resp = new ResponseEntity<>("Food deleted succesfully", HttpStatus.OK);
+		}catch(Exception e) {
+			resp = new ResponseEntity<>("Failed to delete Food", HttpStatus.BAD_REQUEST)
+;		}
+		
+		return resp;
+	}
+	
 	
 	
 }

@@ -16,7 +16,7 @@ import com.revature.dao.EmployeeDAOImpl;
 import com.revature.service.EmployeeService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/home")
 public class HomeController {
 	
 	@Autowired

@@ -69,18 +69,18 @@ public class OrderController {
 		return resp;
 	}
 	
-	@PutMapping
-	public ResponseEntity<String> updateTotal(@RequestBody Order order){
-		ResponseEntity<String> resp = null;
-		try {
-			orderService.updateTotal(order);
-			resp = new ResponseEntity<>("Total has been updated!", HttpStatus.OK);
-		}catch(Exception e) {
-			resp = new ResponseEntity<>("Failed to update order",HttpStatus.BAD_REQUEST);
-		}
-		return resp;
-	}
-	
+//	@PutMapping
+//	public ResponseEntity<String> updateTotal(@RequestBody Order order){
+//		ResponseEntity<String> resp = null;
+//		try {
+//			orderService.updateTotal(order);
+//			resp = new ResponseEntity<>("Total has been updated!", HttpStatus.OK);
+//		}catch(Exception e) {
+//			resp = new ResponseEntity<>("Failed to update order",HttpStatus.BAD_REQUEST);
+//		}
+//		return resp;
+//	}
+//	
 	@DeleteMapping
 	public ResponseEntity<String> deleteOrder(@RequestBody Order order){
 		ResponseEntity<String> resp = null;
@@ -93,9 +93,9 @@ public class OrderController {
 		return resp;
 	}
 	
-	
-	
-	
+//	
+//	
+//	
 	
 
 }

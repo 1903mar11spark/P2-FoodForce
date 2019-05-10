@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -49,10 +48,10 @@ public class OrderDAOImpl implements OrderDAO {
 		sessionFactory.getCurrentSession().saveOrUpdate(order);
 	}
 
-	@Override
-	public void updateTotal(Order order) {
-		sessionFactory.getCurrentSession().saveOrUpdate(order);
-	}
+//	@Override
+//	public void updateTotal(Order order) {
+//		sessionFactory.getCurrentSession().saveOrUpdate(order);
+//	}
 	
 	@Override
 	public void deleteOrder(Order order) {

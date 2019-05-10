@@ -33,10 +33,10 @@ public class OrderService {
 		orderDAO.updateStatus(order);
 	}
 	
-	//update total of order
-	public void updateTotal(Order order) {
-		orderDAO.updateTotal(order);
-	}
+//	//update total of order
+//	public void updateTotal(Order order) {
+//		orderDAO.updateTotal(order);
+//	}
 	
 	//delete order
 	public void deleteOrder(Order order) {
