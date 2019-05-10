@@ -78,8 +78,24 @@ public class OrderDAOImpl implements OrderDAO {
 //	}
 	
 	@Override
-	public void deleteOrder(Order order) {
-		sessionFactory.getCurrentSession().delete(order);
+	public Order deleteOrder(Order order) {
+		try {
+			
+			Session session = sessionFactory.getCurrentSession();
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Order> query = builder.createQuery(Order.class);
+			Root<Order> root = query.from(Order.class);
+	        query.select(root).where(builder.equal(root.get("orderid"), order));
+	        
+	        Query<Order> q = session.createQuery(query);
+	        Order o = (Order) q.list();
+	        return o;	
+	        
+			} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		         
+			}
 		
 	}
 

@@ -10,7 +10,7 @@ public interface OrderDAO {
 	public List<Order> getCustomerOrders(int customerId);
 	public void updateStatus(Order order);
 //	public void updateTotal(Order order);
-	public void deleteOrder(Order order);
+	public Order deleteOrder(Order order);
 	
 	
 }
