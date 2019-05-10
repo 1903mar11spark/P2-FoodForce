@@ -35,6 +35,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public Customer getCustomerByCredentials(String username, String password) {
 		return null;
 	}
+	
+	//trying to merge
 
 	@Override
 	public Customer getCustomerByCredentialId(int id) {
