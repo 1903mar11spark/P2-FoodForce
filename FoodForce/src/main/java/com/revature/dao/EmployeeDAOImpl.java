@@ -47,10 +47,26 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public void createEmployee(Employee empl) {
-		sessionFactory.getCurrentSession().persist(empl);
-		
-	}
+	public Employee createEmployee(Employee empl) {
+		return empl;
+//		sessionFactory.getCurrentSession().persist(empl);
+//		try {
+//			Session session = sessionFactory.getCurrentSession();
+//			CriteriaBuilder builder = session.getCriteriaBuilder();
+//			CriteriaQuery<Credential> query = builder.createQuery(Credential.class);
+//			Root<Credential> root = query.from(Credential.class);
+//	        query.select(root).where(builder.and(builder.equal(root.get("username"), un), builder.equal(root.get("password"), pw)));
+//	        
+//	        //root.get("password"), pw)
+//
+//	        Query<Credential> q = session.createQuery(query);
+//	        Credential cred = q.getSingleResult();
+//	        return cred;	
+//		} catch (Exception e) {
+//	         
+//	         return null;
+	   }
+
 
 	@Override
 	public void updateEmployee(Employee empl) {

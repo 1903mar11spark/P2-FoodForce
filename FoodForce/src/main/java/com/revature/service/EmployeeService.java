@@ -30,8 +30,8 @@ public class EmployeeService {
 		return edao.allEmployees();
 	}
 	
-	public void createEmployee(Employee empl) {
-		edao.createEmployee(empl);
+	public Employee createEmployee(Employee empl) {
+		return edao.createEmployee(empl);
 	}
 	
 	public Employee getEmployeeByCredentialId(int id) {
