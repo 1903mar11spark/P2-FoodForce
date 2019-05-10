@@ -11,7 +11,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.entities.Order;
+import com.revature.beans.Order;
 
 
 @Repository(value = "OrderDAO")

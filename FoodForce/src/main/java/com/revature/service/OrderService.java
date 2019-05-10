@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.beans.Order;
 import com.revature.dao.OrderDAO;
-import com.revature.entities.Order;
 
 @Service
 public class OrderService {

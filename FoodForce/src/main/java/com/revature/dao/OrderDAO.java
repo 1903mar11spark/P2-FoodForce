@@ -2,7 +2,7 @@ package com.revature.dao;
 
 import java.util.List;
 
-import com.revature.entities.Order;
+import com.revature.beans.Order;
 
 public interface OrderDAO {
 

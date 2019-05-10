@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.beans.Credential;
+import com.revature.beans.Customer;
+import com.revature.beans.Employee;
 import com.revature.beans.LoginResponse;
-import com.revature.entities.Credential;
-import com.revature.entities.Customer;
-import com.revature.entities.Employee;
-import com.revature.entities.User;
+import com.revature.beans.User;
 import com.revature.exceptions.UserNotFoundException;
 import com.revature.service.CredentialService;
 import com.revature.service.CustomerService;

@@ -1,4 +1,4 @@
-package com.revature.entities;
+package com.revature.beans;
 
 public interface User {
 

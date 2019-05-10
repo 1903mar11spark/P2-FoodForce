@@ -1,4 +1,4 @@
-package com.revature.entities;
+package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,30 +13,29 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-
 @Entity
-@Table(name = "Customer")
+@Table(name = "Employee")
 @Component
-public class Customer implements User {
+public class Employee implements User {
 	
-
-	public Customer() {
+	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Customer(int id, String firstName, String lastName, Credential credential) {
+	public Employee(int id, String firstName, String lastName, int reportsTo, Credential credential) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.reportsTo = reportsTo;
 		this.credential = credential;
-		
+
 	}
 	
 	@Id // indicates a primary key
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "userSequence")
-	@SequenceGenerator(allocationSize = 1, name = "userSequence", sequenceName = "SQ_USER_PK")
-	@Column(name = "CUSTOMERID")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "employeeSequence")
+	@SequenceGenerator(allocationSize = 1, name = "employeeSequence", sequenceName = "SQ_EMPLOYEE_PK")
+	@Column(name = "EMPLOYEEID")
 	protected int id;
 	
 	@Column(name = "FIRSTNAME")
@@ -44,6 +43,9 @@ public class Customer implements User {
 	
 	@Column(name = "LASTNAME")
 	protected String lastName;
+	
+	@Column(name = "REPORTSTO")
+	protected int reportsTo;
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CREDENTIALID")
@@ -68,6 +70,12 @@ public class Customer implements User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public int getReportsTo() {
+		return reportsTo;
+	}
+	public void setReportsTo(int reportsTo) {
+		this.reportsTo = reportsTo;
+	}
 	
 	public Credential getCredential() {
 		return credential;
@@ -77,10 +85,9 @@ public class Customer implements User {
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", credential="
-				+ credential + "]";
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", reportsTo=" + reportsTo
+				+ ", credential=" + credential + "]";
 	}
-	
 	
 	
 	

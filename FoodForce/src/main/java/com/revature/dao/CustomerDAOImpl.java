@@ -11,8 +11,8 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.revature.entities.Customer;
-import com.revature.entities.Employee;
+import com.revature.beans.Customer;
+import com.revature.beans.Employee;
 
 @Repository
 @Transactional

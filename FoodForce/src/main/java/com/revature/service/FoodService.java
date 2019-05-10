@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.beans.Food;
 import com.revature.dao.FoodDAO;
-import com.revature.entities.Food;
 
 @Service
 public class FoodService {

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.entities.Order;
+import com.revature.beans.Order;
 import com.revature.service.OrderService;
 
 @RestController //combines Controller and Request Body. Not sure if RequestBody should go here

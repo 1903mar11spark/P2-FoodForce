@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.entities.Food;
+import com.revature.beans.Food;
 
 @Repository(value = "FoodDAO")
 @Transactional

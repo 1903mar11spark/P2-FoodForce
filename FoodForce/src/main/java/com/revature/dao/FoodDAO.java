@@ -2,7 +2,7 @@ package com.revature.dao;
 
 import java.util.List;
 
-import com.revature.entities.Food;
+import com.revature.beans.Food;
 
 public interface FoodDAO {
 	

@@ -6,8 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.revature.entities.Credential;
-import com.revature.entities.Employee;
+import com.revature.beans.Credential;
+import com.revature.beans.Employee;
 import com.revature.service.CredentialService;
 import com.revature.service.EmployeeService;
 import com.revature.util.ConnectionUtil;
