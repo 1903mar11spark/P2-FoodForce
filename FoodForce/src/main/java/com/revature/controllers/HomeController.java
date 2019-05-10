@@ -22,7 +22,10 @@ import com.revature.dao.EmployeeDAO;
 import com.revature.dao.EmployeeDAOImpl;
 import com.revature.service.EmployeeService;
 
+
 @RestController
+@Controller
+@RequestMapping("/home")
 public class HomeController {
 	
 	@Autowired

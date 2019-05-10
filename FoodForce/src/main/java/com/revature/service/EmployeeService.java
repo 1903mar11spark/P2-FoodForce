@@ -16,6 +16,7 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeDAO edao;
 	
+	//Should it be EmployeeDAO instead of EmployeeDAOImpl below on the datatype declaration?
 	@Autowired
 	public EmployeeService(EmployeeDAOImpl ed) {
 		this.edao = ed;
@@ -37,6 +38,14 @@ public class EmployeeService {
 	public Employee getEmployeeByCredentialId(int id) {
 		return edao.getEmployeeById(id);
 		
+	}
+	
+	public void updateEmployee(Employee empl) {
+		edao.updateEmployee(empl);
+	}
+	
+	public void deleteEmployee(Employee empl) {
+		edao.deleteEmployee(empl);
 	}
 	
 	
