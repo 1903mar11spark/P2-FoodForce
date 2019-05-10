@@ -17,25 +17,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entities.Customer;
 import com.revature.entities.Order;
+import com.revature.service.CustomerService;
 import com.revature.service.OrderService;
 
 @RestController //combines Controller and Request Body. Not sure if RequestBody should go here
 public class OrderController {
 	
-	
-	private OrderService orderService;
-	
 	@Autowired
-	public OrderController(OrderService orderService) {
-		this.orderService = orderService;
-	}
+	private OrderService orderService;
+	@Autowired
+	private CustomerService cserv;
+
 	
 	//Create an new order, returns string message
-	@PostMapping
-	public ResponseEntity<String> createOrder(@RequestBody Order order){
+	@PostMapping(value = "order/{customerId}")
+	public ResponseEntity<String> createOrder(@PathVariable int customerId, @RequestBody Order order){
+		Customer c = cserv.getCustomerById(customerId);
 		ResponseEntity<String> resp = null;
 		//calling the orderService class to create a new order
 		try {
+			order.setCustomer(c);
 			orderService.createOrder(order);
 			resp = new ResponseEntity<>("Order created successfully" , HttpStatus.OK);
 		}catch(Exception e) {

@@ -33,8 +33,9 @@ public class OrderDAOImpl implements OrderDAO {
 	
 
 	@Override
-	public void createOrder(Order order) {
-		sessionFactory.getCurrentSession().persist(order);
+	public Order createOrder(Order order) {
+		sessionFactory.getCurrentSession().saveOrUpdate(order);
+		return order;
 
 	}
 

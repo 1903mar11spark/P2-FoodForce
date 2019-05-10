@@ -19,8 +19,8 @@ public class OrderService {
 	}
 	
 	//create order
-	public void createOrder(Order order) {
-		orderDAO.createOrder(order);
+	public Order createOrder(Order order) {
+		return orderDAO.createOrder(order);
 	}
 	
 	//get customer order with customer Id

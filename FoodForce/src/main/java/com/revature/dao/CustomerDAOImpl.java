@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -21,16 +22,17 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	private SessionFactory sessionFactory;
 
+	@Autowired
+	public CustomerDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
 	public Customer getCustomerById(int id) {
-		
-		
-		return null;
+		return sessionFactory.getCurrentSession().byId(Customer.class).getReference(id);
 	}
 
 	@Override
 	public Customer getCustomerByCredentials(String username, String password) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -52,6 +54,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 		         return null;
 			}
 		}
+	
+	
 	}
 
 

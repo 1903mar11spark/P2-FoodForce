@@ -23,5 +23,10 @@ public class CustomerService {
 		return cdao.getCustomerByCredentialId(id);
 		
 	}
+	
+	public Customer getCustomerById(int id) {
+		return cdao.getCustomerById(id);
+	}
+
 
 }
