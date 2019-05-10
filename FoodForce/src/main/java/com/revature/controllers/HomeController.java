@@ -67,6 +67,15 @@ public class HomeController {
 	}
 	
 	
+	@GetMapping(value="/{id}")
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
+		Employee emp = eserv.getEmployeeById(id);
+		if (emp == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(emp, HttpStatus.OK);
+		}
+	}
 //	
 //	@GetMapping(value="/")
 //	public ResponseEntity<List<Employee>> allEmployees() {
