@@ -25,7 +25,6 @@ public class CredentialService {
 	
 	public Credential newUserCredentials(String username, String password) {
 		return null;
-
 		
 	}
 
