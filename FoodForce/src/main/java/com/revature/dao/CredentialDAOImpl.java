@@ -1,12 +1,17 @@
 package com.revature.dao;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.revature.beans.Credential;
+import com.revature.entities.Credential;
 
 @Repository
 @Transactional
@@ -22,14 +27,24 @@ public class CredentialDAOImpl implements CredentialDAO {
 
 	//still trying to figure out this one
 	@Override
-	public Credential getCredentials(String username, String password) {
-		return sessionFactory.getCurrentSession().get(Credential.class, username);
-		
-	}
+	public Credential getCredentials(String un, String pw) {
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Credential> query = builder.createQuery(Credential.class);
+			Root<Credential> root = query.from(Credential.class);
+	        query.select(root).where(builder.and(builder.equal(root.get("username"), un), builder.equal(root.get("password"), pw)));
+	        
+	        //root.get("password"), pw)
 
-	@Override
-	public Credential getCredentialsById(int id) {
-		return sessionFactory.getCurrentSession().get(Credential.class, id);
+	        Query<Credential> q = session.createQuery(query);
+	        Credential cred = q.getSingleResult();
+	        return cred;	
+		} catch (Exception e) {
+	         
+	         return null;
+	   }
+				
 	}
 
 	@Override
@@ -37,5 +52,6 @@ public class CredentialDAOImpl implements CredentialDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	
 }

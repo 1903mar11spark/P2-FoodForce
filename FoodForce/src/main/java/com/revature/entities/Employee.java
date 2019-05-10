@@ -1,4 +1,4 @@
-package com.revature.beans;
+package com.revature.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "Employee")
 @Component
-public class Employee {
+public class Employee implements User {
 	
 	public Employee() {
 		super();

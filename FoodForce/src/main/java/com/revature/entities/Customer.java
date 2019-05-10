@@ -1,4 +1,4 @@
-package com.revature.beans;
+package com.revature.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "Customer")
 @Component
-public class Customer {
+public class Customer implements User {
 	
 
 	public Customer() {
@@ -68,7 +68,6 @@ public class Customer {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
 	
 	public Credential getCredential() {
 		return credential;

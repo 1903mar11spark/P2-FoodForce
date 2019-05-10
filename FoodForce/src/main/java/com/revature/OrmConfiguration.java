@@ -21,7 +21,7 @@ public class OrmConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("com.revature.beans");
+        sessionFactory.setPackagesToScan("com.revature.entities");
         sessionFactory.setHibernateProperties(hibernateProperties());
  
         return sessionFactory;

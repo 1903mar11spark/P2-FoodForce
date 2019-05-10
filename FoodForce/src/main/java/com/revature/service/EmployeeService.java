@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.revature.beans.Employee;
 import com.revature.dao.EmployeeDAO;
 import com.revature.dao.EmployeeDAOImpl;
+import com.revature.entities.Employee;
 
 @Service
 public class EmployeeService {
@@ -32,6 +32,11 @@ public class EmployeeService {
 	
 	public void createEmployee(Employee empl) {
 		edao.createEmployee(empl);
+	}
+	
+	public Employee getEmployeeByCredentialId(int id) {
+		return edao.getEmployeeById(id);
+		
 	}
 	
 	
