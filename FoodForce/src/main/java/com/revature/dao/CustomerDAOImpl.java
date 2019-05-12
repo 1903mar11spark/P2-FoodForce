@@ -39,6 +39,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return null;
 
 	}
+	
+	//trying to merge
 
 	@Override
 	public Customer getCustomerByCredentialId(int id) {
