@@ -2,7 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent} from './login/login.component';
 import { EmployeeMainComponent } from './employee-main/employee-main.component';
-import { MyInfoComponent } from './my-info/my-info.component';
+import { MyInfoComponent } from './emp-my-info/my-info.component';
 import { EmpCompleteComponent } from './emp-complete/emp-complete.component';
 import { EmpMadeComponent } from './emp-made/emp-made.component';
 import { EmpPendingComponent } from './emp-pending/emp-pending.component';
