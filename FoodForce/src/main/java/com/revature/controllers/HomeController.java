@@ -2,7 +2,7 @@ package com.revature.controllers;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,10 @@ import com.revature.dao.EmployeeDAO;
 import com.revature.dao.EmployeeDAOImpl;
 import com.revature.service.EmployeeService;
 
+
 @RestController
+@Controller
+@RequestMapping("/home")
 public class HomeController {
 	
 	@Autowired
@@ -32,15 +35,15 @@ public class HomeController {
 //		this.eserv = eserv;
 //	}
 	
-	@GetMapping("home")
-	public String home(final HttpSession session) {
-		User u = (User) session.getAttribute("user");
-		if (u != null) {
-			return "hello, "+u.getFirstName();
-		} else {
-			return "welcome";
-		}
-	}
+//	@GetMapping("home")
+//	public String home(final HttpSession session) {
+//		User u = (User) session.getAttribute("user");
+//		if (u != null) {
+//			return "hello, "+u.getFirstName();
+//		} else {
+//			return "welcome";
+//		}
+//	}
 	
 	
 //	public LoginResponse login() {

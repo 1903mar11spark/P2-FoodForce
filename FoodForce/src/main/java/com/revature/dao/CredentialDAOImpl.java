@@ -49,7 +49,7 @@ public class CredentialDAOImpl implements CredentialDAO {
 
 	@Override
 	public Credential newUserCredentials(String username, String password) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	
