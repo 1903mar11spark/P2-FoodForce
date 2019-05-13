@@ -43,5 +43,13 @@ public class OrderService {
 		orderDAO.deleteOrder(order);
 	}
 	
+	public List<Order> pendingOrders(){
+		return orderDAO.pendingOrders();
+	}
+	
+	public List<Order> acceptedOrdersByEmployee(int employeeId){
+		return orderDAO.acceptedOrdersByEmployee(employeeId);
+	}
+	
 
 }

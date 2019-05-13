@@ -13,4 +13,6 @@ public interface EmployeeDAO {
 	public void deleteEmployee(Employee empl);
 	public Employee getEmployeeByCredentialId(int id);
 	
+	//new methods May 12, 2019
+	
 }
