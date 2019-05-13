@@ -1,3 +1,26 @@
-<p>
-  emp-acc
-</p>
+<br>
+<h3>Accepted Orders</h3>
+<table class="table">
+<thead>
+  <th>Order ID</th>
+  <th>Status</th>
+  <th>Total</th>
+
+  <th>Customer ID</th>
+  <th>Employee ID</th>
+  <th>Employee Name</th>
+</thead>
+<tbody>
+  <tr *ngFor="let ord of acc">
+    <td>{{ord.id}}</td>
+    <td>{{ord.status}}</td>
+    <td>{{ord.total}}</td>
+    <td>{{ord.cus.id}}</td>
+    <td>{{ord.emp.id}}</td>
+    <td>{{ord.emp.firstName}} {{ord.emp.lastName}}</td>
+    <td><button >Finish</button></td>
+
+  </tr>
+</tbody>
+
+</table>

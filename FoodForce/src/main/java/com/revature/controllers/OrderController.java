@@ -107,7 +107,7 @@ public class OrderController {
 //		return resp;
 //	}
 //	
-	@DeleteMapping
+	@DeleteMapping(value = "order/{customerId}")
 	public ResponseEntity<String> deleteOrder(@RequestBody Order order){
 		ResponseEntity<String> resp = null;
 		try {

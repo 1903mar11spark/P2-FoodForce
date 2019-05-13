@@ -22,7 +22,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { CustInfoComponent } from './cust-info/cust-info.component'
 
 
 //Services
@@ -44,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http'
     MenuPizzaComponent,
     CheckOutComponent,
     LoginFormComponent,
-    FooterComponent
+    FooterComponent,
+    CustInfoComponent
     ],
   imports: [
     HttpClientModule,

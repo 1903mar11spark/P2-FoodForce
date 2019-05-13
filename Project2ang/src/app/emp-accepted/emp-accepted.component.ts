@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { runInThisContext } from 'vm';
+import { Order } from '../order';
+import { EmpAcceptService } from './emp-accepted.service';
 
 @Component({
   selector: 'app-emp-accepted',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpAcceptedComponent implements OnInit {
 
-  constructor() { }
+acc: Order[];
+
+  constructor(private empAcceptedService: EmpAcceptService) { }
 
   ngOnInit() {
+    this.empAcceptedService.getAccepted().
+    subscribe(acc => this.acc = acc)
   }
 
 }
