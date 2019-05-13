@@ -19,8 +19,10 @@ public class CredentialService {
 	
 
 	public Credential getCredentials(String un, String pw) {
+
 		return credDAO.getCredentials(un, pw);
 	}
+
 
 	@Autowired
 	public CredentialService(CredentialDAO cred) {
@@ -28,9 +30,11 @@ public class CredentialService {
 	}
 	
 
-//	public Credential getCredentialsById(int id) {
-//		return credDAO.getCredentialsById(id);
-//	}
+
+	public Credential getCredentialsById(String un, String pw) {
+		return credDAO.getCredentials(un, pw);
+	}
+
 	
 	
 	
