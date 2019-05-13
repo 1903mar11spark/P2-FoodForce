@@ -39,8 +39,8 @@ public class OrderService {
 //	}
 	
 	//delete order
-	public Order deleteOrder(Order order) {
-		return orderDAO.deleteOrder(order);
+	public void deleteOrder(Order order) {
+		orderDAO.deleteOrder(order);
 	}
 	
 	public List<Order> pendingOrders(){

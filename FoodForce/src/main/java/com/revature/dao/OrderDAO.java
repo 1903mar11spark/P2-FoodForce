@@ -11,7 +11,7 @@ public interface OrderDAO {
 	public void updateStatus(Order order);
 //	public void updateTotal(Order order);
 	public Order deleteO(int orderid);
-	public Order deleteOrder(Order order);
+	public void deleteOrder(Order order);
 
 	
 	//Adding new methods May 12, 2019
