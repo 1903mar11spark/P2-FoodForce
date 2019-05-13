@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.revature.beans.Food;
+import com.revature.entities.Food;
 
 @Repository(value = "FoodDAO")
 @Transactional

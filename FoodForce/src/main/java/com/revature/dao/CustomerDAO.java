@@ -1,8 +1,11 @@
 package com.revature.dao;
 
+
+import com.revature.entities.Customer;
+
 import java.util.List;
 
-import com.revature.beans.Customer;
+
 
 public interface CustomerDAO {
 
@@ -14,6 +17,8 @@ public interface CustomerDAO {
 	
 
 	public Customer getCustomerByCredentialId(int id);
+	Customer getCustomerByCredentials(String username, String password);
+	
 
 
 

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
 import { EmployeeMainComponent } from './employee-main/employee-main.component';
-import { MyInfoComponent } from './my-info/my-info.component';
+import { MyInfoComponent } from './emp-my-info/my-info.component';
 import { EmpPendingComponent } from './emp-pending/emp-pending.component';
 import { EmpAcceptedComponent } from './emp-accepted/emp-accepted.component';
 import { EmpMadeComponent } from './emp-made/emp-made.component';

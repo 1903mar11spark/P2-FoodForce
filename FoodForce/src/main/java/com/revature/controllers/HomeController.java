@@ -2,7 +2,7 @@ package com.revature.controllers;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Customer;
-import com.revature.beans.Employee;
-import com.revature.beans.Food;
+import com.revature.entities.Customer;
+import com.revature.entities.Employee;
+import com.revature.entities.Food;
 import com.revature.beans.LoginResponse;
-import com.revature.beans.User;
+import com.revature.entities.User;
 import com.revature.dao.EmployeeDAO;
 import com.revature.dao.EmployeeDAOImpl;
 import com.revature.service.EmployeeService;
@@ -35,15 +35,15 @@ public class HomeController {
 //		this.eserv = eserv;
 //	}
 	
-	@GetMapping("home")
-	public String home(final HttpSession session) {
-		User u = (User) session.getAttribute("user");
-		if (u != null) {
-			return "hello, "+u.getFirstName();
-		} else {
-			return "welcome";
-		}
-	}
+//	@GetMapping("home")
+//	public String home(final HttpSession session) {
+//		User u = (User) session.getAttribute("user");
+//		if (u != null) {
+//			return "hello, "+u.getFirstName();
+//		} else {
+//			return "welcome";
+//		}
+//	}
 	
 	
 //	public LoginResponse login() {
