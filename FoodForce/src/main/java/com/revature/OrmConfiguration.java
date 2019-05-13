@@ -55,10 +55,10 @@ public class OrmConfiguration {
           "hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty(
           "hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
-//        hibernateProperties.setProperty(
-//                "hibernate.show_sql", "true");
-//        hibernateProperties.setProperty(
-//                "hibernate.format_sql", "true"); 
+        hibernateProperties.setProperty(
+                "hibernate.show_sql", "true");
+        hibernateProperties.setProperty(
+                "hibernate.format_sql", "true"); 
         return hibernateProperties;
     }
 
