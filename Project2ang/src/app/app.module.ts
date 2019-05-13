@@ -36,6 +36,7 @@ import {
   MatCardModule,
   MatFormFieldModule } from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FoodComponent } from './food/food.component';
 
 //Services
 
@@ -59,7 +60,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LoginFormComponent,
     FooterComponent,
     FoodDetailComponent,
-    FoodAddComponent
+    FoodAddComponent,
+    FoodComponent
     ],
 
   imports: [

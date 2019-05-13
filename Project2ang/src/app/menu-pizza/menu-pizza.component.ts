@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Food } from '../food';
+import { Food } from '../food/food';
 
 @Component({
   selector: 'app-menu-pizza',
