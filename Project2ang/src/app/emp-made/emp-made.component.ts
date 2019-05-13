@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpMadeService } from './emp-made.service';
+import { Order } from '../order';
 
 @Component({
   selector: 'app-emp-made',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpMadeComponent implements OnInit {
 
-  constructor() { }
+made: Order[];
+
+  constructor(private empMadeService: EmpMadeService) { }
 
   ngOnInit() {
+
+this.empMadeService.getMade()
+    .subscribe( made => this.made = made)
+
   }
 
 }

@@ -1,10 +1,8 @@
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { ORD } from '../test-orders';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Order } from '../order';
-
-
+import { ORD } from '../test-orders';
 
 const headOptions = {
     headers: new HttpHeaders({  
@@ -14,21 +12,19 @@ const headOptions = {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     })
-} 
+}
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class EmpPendingService{
+export class EmpAcceptService{
 
     constructor (private http:HttpClient){}
 
-    //URL: string = ''
+    //URL; string
 
-    getPend(): Observable<Order[]>{
+    getAccepted(): Observable<Order[]>{
         return of(ORD)
     }
-
 }
-

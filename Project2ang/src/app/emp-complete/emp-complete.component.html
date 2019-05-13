@@ -1,3 +1,28 @@
-<p>
-  emp-complete works!
-</p>
+<br>
+<h3>Order History</h3>
+<table class="table">
+<thead>
+  <th>Order ID</th>
+  <th>Status</th>
+  <th>Total</th>
+
+  <th>Customer ID</th>
+  <th>Customer Name</th>
+  <th>Employee ID</th>
+  <th>Employee Name</th>
+</thead>
+<tbody>
+  <tr *ngFor="let ord of comp">
+    <td>{{ord.id}}</td>
+    <td>{{ord.status}}</td>
+    <td>{{ord.total}}</td>
+    <td>{{ord.cus.id}}</td>
+    <td>{{ord.cus.firstName}} {{ord.cus.lastName}}</td>
+    <td>{{ord.emp.id}}</td>
+    <td>{{ord.emp.firstName}} {{ord.emp.lastName}}</td>
+   
+
+  </tr>
+</tbody>
+
+</table>

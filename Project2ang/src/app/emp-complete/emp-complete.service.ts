@@ -20,15 +20,14 @@ const headOptions = {
     providedIn: 'root'
 })
 
-export class EmpPendingService{
+export class EmpCompleteService{
 
     constructor (private http:HttpClient){}
 
     //URL: string = ''
 
-    getPend(): Observable<Order[]>{
+    getComp(): Observable<Order[]>{
         return of(ORD)
     }
 
 }
-
