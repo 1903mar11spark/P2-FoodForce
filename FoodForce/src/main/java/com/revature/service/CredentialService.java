@@ -20,7 +20,7 @@ public class CredentialService {
 
 	public Credential getCredentials(String un, String pw) {
 
-		return credDAO.getCredentials(un, pw);
+		return credDAO.getCredentials(un, pw);		
 	}
 
 
@@ -30,12 +30,10 @@ public class CredentialService {
 	}
 	
 
-
 	public Credential getCredentialsById(String un, String pw) {
 		return credDAO.getCredentials(un, pw);
 	}
 
-	
 	
 	
 	//this method just returns null and does not call the DAO method
