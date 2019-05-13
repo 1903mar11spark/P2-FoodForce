@@ -12,5 +12,9 @@ public interface OrderDAO {
 //	public void updateTotal(Order order);
 	public Order deleteOrder(Order order);
 	
+	//Adding new methods May 12, 2019
+	public List<Order> pendingOrders();
+	public List<Order> acceptedOrdersByEmployee(int employeeId);
+	public List<Order> getOrderByStatus(String status);
 	
 }

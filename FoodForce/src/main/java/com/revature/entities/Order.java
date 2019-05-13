@@ -27,7 +27,7 @@ public class Order {
 	
 	public Order() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public Order(int id, String status, float total, Customer customer, Employee employee) {
 		super();

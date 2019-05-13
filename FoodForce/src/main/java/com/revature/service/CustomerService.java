@@ -14,16 +14,6 @@ import com.revature.entities.Customer;
 @Service
 public class CustomerService {
 
-	// @Autowired
-	// private CustomerDAO cdao;
-	
-	// @Autowired
-	// public CustomerService(CustomerDAOImpl cd) {
-	// 	this.cdao = cd;
-	// }
-	
-
-
 	
 	private CustomerDAO customerDAO;
 	
@@ -37,9 +27,9 @@ public class CustomerService {
 		
 	}
 	
-//	public Customer getCustomerById(int id) {
-//		return cdao.getCustomerById(id);
-//	}
+	public Customer getCustomerById(int id) {
+		return customerDAO.getCustomerById(id);
+	}
 
 
 	

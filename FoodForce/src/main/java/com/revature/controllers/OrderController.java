@@ -24,6 +24,7 @@ public class OrderController {
 	
 	@Autowired
 	private OrderService orderService;
+	
 	@Autowired
 	private CustomerService cserv;
 
@@ -60,6 +61,19 @@ public class OrderController {
 			return new ResponseEntity<>(orders,HttpStatus.OK);
 		}
 	}
+	
+	//show pending orders
+	@GetMapping(value = "order/pending")
+	public ResponseEntity<List<Order>> pendingOrders() {
+		return new ResponseEntity<>(orderService.pendingOrders(),HttpStatus.OK);
+	}
+	
+	
+	@GetMapping(value = "order/accepted{employeeId}")
+	public ResponseEntity<List<Order>> acceptedOrdersByEmployee(@PathVariable int employeeId){
+		return new ResponseEntity<>(orderService.acceptedOrdersByEmployee(employeeId),HttpStatus.OK);
+	}
+	
 	
 	//Update status, returns string message
 	@PutMapping
@@ -100,9 +114,7 @@ public class OrderController {
 		return resp;
 	}
 	
-//	
-//	
-//	
 	
-
+	
+	
 }
