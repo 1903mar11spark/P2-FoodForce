@@ -1,3 +1,25 @@
-<p>
-  emp-pending works!
-</p>
+<br>
+<h3>Pending Orders</h3>
+<table class="table">
+<thead>
+  <th>Order ID</th>
+  <th>Status</th>
+  <th>Total</th>
+<!--pending orders have no employee assigned to them yet-->
+  <th>Customer ID</th>
+  <th>Accept Order</th>
+</thead>
+<tbody>
+  <tr *ngFor="let ord of pends">
+    <td>{{ord.id}}</td>
+    <td>{{ord.status}}</td>
+    <td>{{ord.total}}</td>
+ 
+    <td>{{ord.cus.id}}</td>
+    <td><button >Accept</button></td>
+  </tr>
+</tbody>
+
+</table>
+
+

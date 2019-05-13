@@ -1,7 +1,12 @@
+import { Employee } from './emp-my-info/emp-info';
+import { Customer } from './cust-info/cust-info';
+
 export interface Order{
-    items: [];
+
     id: number;
-    name: string;
-    desc: string;
-    type: string;
+    status: string;
+    total: number;
+   //how to refenece another object in an object
+     emp: Employee;
+    cus: Customer
 }

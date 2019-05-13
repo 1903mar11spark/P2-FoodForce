@@ -24,6 +24,7 @@ public class OrderController {
 	
 	@Autowired
 	private OrderService orderService;
+	
 	@Autowired
 	private CustomerService cserv;
 
@@ -60,6 +61,24 @@ public class OrderController {
 			return new ResponseEntity<>(orders,HttpStatus.OK);
 		}
 	}
+	
+	//show pending orders
+	@GetMapping(value = "order/pending")
+	public ResponseEntity<List<Order>> pendingOrders() {
+		return new ResponseEntity<>(orderService.pendingOrders(),HttpStatus.OK);
+	}
+	
+	//show accepted orders by Employee
+	@GetMapping(value = "order/accepted{employeeId}")
+	public ResponseEntity<List<Order>> acceptedOrdersByEmployee(@PathVariable int employeeId){
+		return new ResponseEntity<>(orderService.acceptedOrdersByEmployee(employeeId),HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "order/get-by-status{status}")
+		public ResponseEntity<List<Order>> getOrderBystatus(@PathVariable String status){
+		return new ResponseEntity<>(orderService.getOrderByStatus(status),HttpStatus.OK);
+	}
+	
 	
 	//Update status, returns string message
 	@PutMapping
@@ -104,25 +123,7 @@ public class OrderController {
 		return resp;
 	}
 	
-//	@DeleteMapping(value = "order/{customerId}")
-//	public ResponseEntity<String> deleteO(@RequestBody int orderid){
-//		ResponseEntity<String> resp = null;
-//		Order o = new Order();
-//		try {
-//			orderService.deleteO(orderid);
-//			o.setStatus("Cancelled");
-//
-//			resp = new ResponseEntity<>("Order has been deleted!", HttpStatus.OK);
-//		}catch(Exception e) {
-//			resp = new ResponseEntity<>("Order failed to delete", HttpStatus.BAD_REQUEST);
-//		}
-//		return resp;
-//	}
 	
-//	
-//	
-//	
-
 	
-
+	
 }

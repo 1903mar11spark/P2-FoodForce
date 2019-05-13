@@ -23,7 +23,9 @@ import com.revature.entities.Employee;
 import com.revature.entities.Food;
 import com.revature.service.FoodService;
 
+
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/food")
 public class FoodController {
 	
@@ -34,7 +36,7 @@ public class FoodController {
 		this.foodService = foodService;
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200/customer/menu/pizza")
+
 	@GetMapping("/")
 	@ResponseBody
 	public List<Food> home() {

@@ -43,11 +43,17 @@ public class OrderService {
 		orderDAO.deleteOrder(order);
 	}
 	
-	public Order deleteO(int orderid) {
-		return orderDAO.deleteO(orderid);
-		
+	public List<Order> pendingOrders(){
+		return orderDAO.pendingOrders();
 	}
-
+	
+	public List<Order> acceptedOrdersByEmployee(int employeeId){
+		return orderDAO.acceptedOrdersByEmployee(employeeId);
+	}
+	
+	public List<Order> getOrderByStatus(String status){
+		return orderDAO.getOrderByStatus(status);
+	}
 	
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpPendingService } from './emp-pending.service';
+import { Order } from '../order';
 
 @Component({
   selector: 'app-emp-pending',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpPendingComponent implements OnInit {
 
-  constructor() { }
+pends: Order[];
+
+  constructor(private empPendingService: EmpPendingService) { }
 
   ngOnInit() {
+
+    this.empPendingService.getPend().subscribe( pends => this.pends = pends)
   }
 
 }
