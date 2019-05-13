@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpCompleteService } from './emp-complete.service';
+import { Order } from '../order';
 
 @Component({
   selector: 'app-emp-complete',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpCompleteComponent implements OnInit {
 
-  constructor() { }
+comp: Order[];
+
+  constructor(private empCompleteService: EmpCompleteService) { }
 
   ngOnInit() {
+
+    this.empCompleteService.getComp()
+      .subscribe(comp => this.comp = comp)
   }
 
 }
