@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
@@ -100,6 +101,30 @@ public class OrderDAOImpl implements OrderDAO {
 			}
 		
 	}
+	
+	
+	@Override
+	public Order deleteO(int orderid) {
+		try {
+			
+			Session session = sessionFactory.getCurrentSession();
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaDelete<Order> delete = builder.createCriteriaDelete(Order.class);
+			Root<Order> root = delete.from(Order.class);
+	        delete.where(builder.equal(root.get("orderid"), orderid));
+	        
+	        Query<Order> q = session.createQuery(delete);
+	        Order o = (Order) q.list();
+	        return o;	
+	        
+			} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		         
+			}
+		
+	}
+	
 
 
 	
