@@ -23,6 +23,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
+import { FoodDetailComponent } from './food-detail/food-detail.component';
 
 
 //Services
@@ -45,7 +46,8 @@ import { FooterComponent } from './footer/footer.component';
     MenuPizzaComponent,
     CheckOutComponent,
     LoginFormComponent,
-    FooterComponent
+    FooterComponent,
+    FoodDetailComponent
     ],
   imports: [
     BrowserModule,
