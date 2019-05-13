@@ -16,10 +16,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Employee;
-import com.revature.beans.Food;
+import com.revature.entities.Employee;
+import com.revature.entities.Food;
 import com.revature.service.FoodService;
 
 @RestController
@@ -35,6 +36,7 @@ public class FoodController {
 
 	@CrossOrigin(origins = "http://localhost:4200/customer/menu/pizza")
 	@GetMapping("/")
+	@ResponseBody
 	public List<Food> home() {
 		List<Food> food = foodService.getAllFood();
 		System.out.println(food);
@@ -71,17 +73,17 @@ public class FoodController {
 			return new ResponseEntity<>(foodService.getAllFood(),HttpStatus.OK);
 	}
 	
-	@PostMapping
-	public ResponseEntity<String> updateFood(@RequestBody Food food){
-		ResponseEntity<String> resp = null;
-		try {
-			foodService.updateFood(food);
-			resp = new ResponseEntity<>("Food updated succesfully", HttpStatus.OK);
-		}catch(Exception e) {
-			resp = new ResponseEntity<>("Failed to update Food", HttpStatus.BAD_REQUEST);
-		}
-		return resp;
-	}
+//	@PostMapping
+//	public ResponseEntity<String> updateFood(@RequestBody Food food){
+//		ResponseEntity<String> resp = null;
+//		try {
+//			foodService.updateFood(food);
+//			resp = new ResponseEntity<>("Food updated succesfully", HttpStatus.OK);
+//		}catch(Exception e) {
+//			resp = new ResponseEntity<>("Failed to update Food", HttpStatus.BAD_REQUEST);
+//		}
+//		return resp;
+//	}
 	
 	@DeleteMapping
 	public ResponseEntity<String> deleteFood(@RequestBody Food food){

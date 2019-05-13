@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.beans.Customer;
 import com.revature.dao.CustomerDAO;
 
 import com.revature.dao.CustomerDAOImpl;
+import com.revature.entities.Customer;
 
 
 @Service
@@ -22,10 +22,13 @@ public class CustomerService {
 	// 	this.cdao = cd;
 	// }
 	
+<<<<<<< HEAD
 //	public Customer getCustomerByCredentialId(int id) {
 //		return cdao.getCustomerByCredentialId(id);
 //		
 //	}
+=======
+>>>>>>> 7defba39aa3f9c42ea8f28b4b5070170d759592e
 
 
 	
@@ -36,11 +39,22 @@ public class CustomerService {
 		this.customerDAO = customerDAO;
 	}
 	
-	
-	//get Customer by ID
-	public Customer getCustomerById(int id) {
-		return customerDAO.getCustomerById(id);
+	public Customer getCustomerByCredentialId(int id) {
+		return customerDAO.getCustomerByCredentialId(id);
+		
 	}
+	
+//	public Customer getCustomerById(int id) {
+//		return cdao.getCustomerById(id);
+//	}
+
+
+	
+	
+//	//get Customer by ID
+//	public Customer getCustomerById(int id) {
+//		return customerDAO.getCustomerById(id);
+//	}
 	
 	//get all customers
 	public List<Customer> allCustomers(){

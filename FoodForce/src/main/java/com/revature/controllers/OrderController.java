@@ -14,44 +14,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Order;
+import com.revature.entities.Customer;
+import com.revature.entities.Order;
+import com.revature.service.CustomerService;
 import com.revature.service.OrderService;
 
 @RestController //combines Controller and Request Body. Not sure if RequestBody should go here
-@RequestMapping(value = "/order")
 public class OrderController {
 	
-	
-	private OrderService orderService;
-	
 	@Autowired
-	public OrderController(OrderService orderService) {
-		this.orderService = orderService;
-	}
+	private OrderService orderService;
+	@Autowired
+	private CustomerService cserv;
+
 	
 	//Create an new order, returns string message
-	@PostMapping
-	public ResponseEntity<String> createOrder(@RequestBody Order order){
-		ResponseEntity<String> resp = null;
-		//calling the orderService class to create a new order
-		try {
-			orderService.createOrder(order);
-			resp = new ResponseEntity<>("Order created successfully" , HttpStatus.OK);
-		}catch(Exception e) {
-			resp = new ResponseEntity<>("Failed to create order" , HttpStatus.BAD_REQUEST);
-		}
-		return resp;
-	}
+//	@PostMapping(value = "order/{customerId}")
+//	public ResponseEntity<String> createOrder(@PathVariable int customerId, @RequestBody Order order){
+//		Customer c = cserv.getCustomerById(customerId);
+//		ResponseEntity<String> resp = null;
+//		//calling the orderService class to create a new order
+//		try {
+//			order.setCustomer(c);
+//			orderService.createOrder(order);
+//			resp = new ResponseEntity<>("Order created successfully" , HttpStatus.OK);
+//		}catch(Exception e) {
+//			resp = new ResponseEntity<>("Failed to create order" , HttpStatus.BAD_REQUEST);
+//		}
+//		return resp;
+//	}
 	
 	
 	//get customer orders with customer id, returns list if not null
-	@GetMapping(value = "/{customerId}")
+	@GetMapping(value = "order/{customerId}")
 	public ResponseEntity<List<Order>> getCustomerOrders(@PathVariable int customerId){
-		List<Order> order = orderService.getCustomerOrders(customerId);
-		if(order == null) {
+		List<Order> orders = orderService.getCustomerOrders(customerId);
+		if(orders == null) {
 			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
-		}else
-			return new ResponseEntity<>(order,HttpStatus.OK);
+		} else {
+			for(Order o: orders) {
+				o.setCustomer(null);
+				o.setEmployee(null);
+			}
+			
+			return new ResponseEntity<>(orders,HttpStatus.OK);
+		}
 	}
 	
 	//Update status, returns string message

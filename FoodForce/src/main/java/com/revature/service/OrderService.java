@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.beans.Order;
 import com.revature.dao.OrderDAO;
+import com.revature.entities.Order;
 
 @Service
 public class OrderService {
@@ -19,8 +19,8 @@ public class OrderService {
 	}
 	
 	//create order
-	public void createOrder(Order order) {
-		orderDAO.createOrder(order);
+	public Order createOrder(Order order) {
+		return orderDAO.createOrder(order);
 	}
 	
 	//get customer order with customer Id

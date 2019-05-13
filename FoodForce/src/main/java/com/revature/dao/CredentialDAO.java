@@ -1,7 +1,7 @@
 package com.revature.dao;
 
-import com.revature.beans.Credential;
-import com.revature.beans.Customer;
+import com.revature.entities.Credential;
+import com.revature.entities.Customer;
 
 public interface CredentialDAO {
 	
