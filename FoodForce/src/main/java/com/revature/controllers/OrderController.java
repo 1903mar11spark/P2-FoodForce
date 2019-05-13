@@ -68,10 +68,15 @@ public class OrderController {
 		return new ResponseEntity<>(orderService.pendingOrders(),HttpStatus.OK);
 	}
 	
-	
+	//show accepted orders by Employee
 	@GetMapping(value = "order/accepted{employeeId}")
 	public ResponseEntity<List<Order>> acceptedOrdersByEmployee(@PathVariable int employeeId){
 		return new ResponseEntity<>(orderService.acceptedOrdersByEmployee(employeeId),HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "order/get-by-status{status}")
+		public ResponseEntity<List<Order>> getOrderBystatus(@PathVariable String status){
+		return new ResponseEntity<>(orderService.getOrderByStatus(status),HttpStatus.OK);
 	}
 	
 	
@@ -79,9 +84,9 @@ public class OrderController {
 	@PutMapping
 	public ResponseEntity<String> updateStatus(@RequestBody Order order){
 		ResponseEntity<String> resp = null;
-		
+		Order o = new Order();
 		try {
-			orderService.updateStatus(order);
+			orderService.updateStatus(order);			
 			resp = new ResponseEntity<>("Order updated successfully",HttpStatus.OK);
 		}catch(Exception e) {
 			resp = new ResponseEntity<>("Failed to update order",HttpStatus.BAD_REQUEST);
@@ -102,11 +107,15 @@ public class OrderController {
 //		return resp;
 //	}
 //	
-	@DeleteMapping
+	@DeleteMapping(value = "order/{customerId}")
 	public ResponseEntity<String> deleteOrder(@RequestBody Order order){
 		ResponseEntity<String> resp = null;
 		try {
-			orderService.deleteOrder(order);
+			if(order.getStatus() == "pending") {
+				order.setStatus("Cancelled");
+			}
+			
+//			orderService.deleteOrder(order);
 			resp = new ResponseEntity<>("Order has been deleted!", HttpStatus.OK);
 		}catch(Exception e) {
 			resp = new ResponseEntity<>("Order failed to delete", HttpStatus.BAD_REQUEST);

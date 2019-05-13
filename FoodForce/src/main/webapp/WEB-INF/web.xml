@@ -29,6 +29,7 @@
        </listener-class>
   </listener>
   
+<<<<<<< HEAD
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -37,3 +38,6 @@
     </context-param>
   
 </web-app>
+=======
+</web-app>
+>>>>>>> cc532a76bfbfd8ce09e3d5046ae8c670ac238d68
