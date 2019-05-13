@@ -11,6 +11,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.entities.Customer;
 import com.revature.entities.Employee;
@@ -19,8 +21,9 @@ import com.revature.entities.Employee;
 @Transactional
 @EnableTransactionManagement(proxyTargetClass = true)
 public class CustomerDAOImpl implements CustomerDAO {
-
+	
 	private SessionFactory sessionFactory;
+
 
 	@Autowired
 	public CustomerDAOImpl(SessionFactory sessionFactory) {
@@ -34,6 +37,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public Customer getCustomerByCredentials(String username, String password) {
 		return null;
+
 	}
 	
 	//trying to merge
@@ -56,6 +60,30 @@ public class CustomerDAOImpl implements CustomerDAO {
 		         return null;
 			}
 		}
+
+	@Override
+	public List<Customer> allCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void createCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	}

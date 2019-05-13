@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -30,20 +29,20 @@ public class OrderController {
 
 	
 	//Create an new order, returns string message
-	@PostMapping(value = "order/{customerId}")
-	public ResponseEntity<String> createOrder(@PathVariable int customerId, @RequestBody Order order){
-		Customer c = cserv.getCustomerById(customerId);
-		ResponseEntity<String> resp = null;
-		//calling the orderService class to create a new order
-		try {
-			order.setCustomer(c);
-			orderService.createOrder(order);
-			resp = new ResponseEntity<>("Order created successfully" , HttpStatus.OK);
-		}catch(Exception e) {
-			resp = new ResponseEntity<>("Failed to create order" , HttpStatus.BAD_REQUEST);
-		}
-		return resp;
-	}
+//	@PostMapping(value = "order/{customerId}")
+//	public ResponseEntity<String> createOrder(@PathVariable int customerId, @RequestBody Order order){
+//		Customer c = cserv.getCustomerById(customerId);
+//		ResponseEntity<String> resp = null;
+//		//calling the orderService class to create a new order
+//		try {
+//			order.setCustomer(c);
+//			orderService.createOrder(order);
+//			resp = new ResponseEntity<>("Order created successfully" , HttpStatus.OK);
+//		}catch(Exception e) {
+//			resp = new ResponseEntity<>("Failed to create order" , HttpStatus.BAD_REQUEST);
+//		}
+//		return resp;
+//	}
 	
 	
 	//get customer orders with customer id, returns list if not null
