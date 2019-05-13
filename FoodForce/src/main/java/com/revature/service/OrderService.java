@@ -51,5 +51,9 @@ public class OrderService {
 		return orderDAO.acceptedOrdersByEmployee(employeeId);
 	}
 	
+	public List<Order> getOrderByStatus(String status){
+		return orderDAO.getOrderByStatus(status);
+	}
+	
 
 }

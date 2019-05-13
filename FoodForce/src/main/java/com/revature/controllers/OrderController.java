@@ -68,10 +68,15 @@ public class OrderController {
 		return new ResponseEntity<>(orderService.pendingOrders(),HttpStatus.OK);
 	}
 	
-	
+	//show accepted orders by Employee
 	@GetMapping(value = "order/accepted{employeeId}")
 	public ResponseEntity<List<Order>> acceptedOrdersByEmployee(@PathVariable int employeeId){
 		return new ResponseEntity<>(orderService.acceptedOrdersByEmployee(employeeId),HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "order/get-by-status{status}")
+		public ResponseEntity<List<Order>> getOrderBystatus(@PathVariable String status){
+		return new ResponseEntity<>(orderService.getOrderByStatus(status),HttpStatus.OK);
 	}
 	
 	

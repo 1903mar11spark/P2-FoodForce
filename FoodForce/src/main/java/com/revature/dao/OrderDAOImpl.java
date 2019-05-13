@@ -126,10 +126,15 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Order> getOrderByStatus(String status) {
-		
-		return null;
+		List<Order> orders = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		Query q = s.createQuery("from Orders where STATUS = :statusType");
+		q.setParameter("statusType", status);
+		orders = q.getResultList();
+		return orders;
 	}
 
 }
