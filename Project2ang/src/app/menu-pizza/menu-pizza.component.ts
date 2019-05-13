@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { Food } from '../food';
 
 @Component({
   selector: 'app-menu-pizza',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPizzaComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['food_name', 'food_desc'];
+  data: Food[] = [];
+  isLoadingResults = true;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.api.getFoods()
+    .subscribe(res => {
+      this.data = res;
+      console.log(this.data);
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+      this.isLoadingResults = false;
+    });
+
   }
 
 }

@@ -13,7 +13,8 @@ import { CustOrderHistoryComponent } from './cust-order-history/cust-order-histo
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MenuPizzaComponent } from './menu-pizza/menu-pizza.component';
 import { CheckOutComponent } from './check-out/check-out.component';
-
+import { FoodDetailComponent } from './food-detail/food-detail.component';
+import { FoodAddComponent } from './food-add/food-add.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -36,7 +37,23 @@ const routes: Routes = [
     {path: 'made', component: EmpMadeComponent},
     {path: 'info', component: MyInfoComponent},
     {path: 'pending', component: EmpPendingComponent},
-    {path: 'accepted', component: EmpAcceptedComponent}
+    {path: 'accepted', component: EmpAcceptedComponent},
+  
+    {
+        path: 'menu',
+        component: MenuPizzaComponent,
+        data: { title: 'Pizza Menu' }
+      },
+      {
+        path: 'pizza-details/:id',
+        component: FoodDetailComponent,
+        data: { title: 'Pizza Details' }
+      },
+      {
+        path: 'product-add',
+        component: FoodAddComponent,
+        data: { title: 'Add Product' }
+      },
     
   ]
 }

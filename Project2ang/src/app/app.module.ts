@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 //Components
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { EmployeeMainComponent } from './employee-main/employee-main.component';
@@ -20,11 +20,22 @@ import { CustOrderHistoryComponent } from './cust-order-history/cust-order-histo
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MenuPizzaComponent } from './menu-pizza/menu-pizza.component';
 import { CheckOutComponent } from './check-out/check-out.component';
+import {FoodAddComponent } from './food-add/food-add.component';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
-
+import {
+  MatInputModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatTableModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule } from "@angular/material";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 //Services
 
@@ -47,14 +58,31 @@ import { FoodDetailComponent } from './food-detail/food-detail.component';
     CheckOutComponent,
     LoginFormComponent,
     FooterComponent,
-    FoodDetailComponent
+    FoodDetailComponent,
+    FoodAddComponent
     ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-  ],
+    FormsModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
