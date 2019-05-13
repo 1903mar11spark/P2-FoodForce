@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 //Components
 import { AppComponent } from './app.component';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { EmployeeMainComponent } from './employee-main/employee-main.component';
 import { MyInfoComponent } from './my-info/my-info.component';
@@ -48,7 +49,9 @@ import { FooterComponent } from './footer/footer.component';
     ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

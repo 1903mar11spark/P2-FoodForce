@@ -1,6 +1,24 @@
 <p>
   Eventually we can create these using a for loop to make one for each menu item in the Database.
 </p>
+<div>
+  <table>
+    <thead>
+      <th>Food ID</th>
+      <th>Food Description</th>
+      <th>Food Name</th>
+      <th>Food Type</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let food of foods">
+        <td>{{food.id}}</td>
+        <td>{{food.description}}</td>
+        <td>{{food.name}}</td>
+        <td>{{food.type}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div class="row">
   <div class="col-md-3">
     <div class="card mb-4 box-shadow">
