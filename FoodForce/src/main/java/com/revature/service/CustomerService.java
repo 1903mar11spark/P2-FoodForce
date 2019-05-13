@@ -22,10 +22,10 @@ public class CustomerService {
 	// 	this.cdao = cd;
 	// }
 	
-	public Customer getCustomerByCredentialId(int id) {
-		return cdao.getCustomerByCredentialId(id);
-		
-	}
+//	public Customer getCustomerByCredentialId(int id) {
+//		return cdao.getCustomerByCredentialId(id);
+//		
+//	}
 
 
 	

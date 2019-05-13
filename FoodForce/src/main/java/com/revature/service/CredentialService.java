@@ -19,16 +19,16 @@ public class CredentialService {
 	
 
 	public Credential getCredentials(String un, String pw) {
-		return creddao.getCredentials(un, pw);		
-
+		return credDAO.getCredentials(un, pw);		
+	}
 	@Autowired
 	public CredentialService(CredentialDAO cred) {
 		this.credDAO = cred;
 	}
 	
 
-	public Credential getCredentialsById(int id) {
-		return credDAO.getCredentialsById(id);
+	public Credential getCredentialsById(String un, String pw) {
+		return credDAO.getCredentials(un, pw);
 	}
 	
 	
