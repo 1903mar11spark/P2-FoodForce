@@ -11,7 +11,12 @@ const heetOptions = {
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
         'Access-Control-Allow-Headers': '*',
         'Content-Type': 'application/json',
+<<<<<<< HEAD
         'Accept': 'application/json'
+=======
+    'Accept': 'application/json',
+    'Access-Control-Allow-Origin' : '*'
+>>>>>>> 859a1638ec78a99fbb7f2df41418e8cbdde167a2
     })
 } 
 
@@ -23,11 +28,17 @@ export class MenuPizzaService{
     constructor (private http:HttpClient){}
 
 
-    URL: string = 'localhost:8084/FoodForce/food/';
+    URL: string = 'localhost:8084/FoodForce/food/all/';
 
+<<<<<<< HEAD
     getQuests(): Observable<Menu[]>{
  
         return this.http.get<Menu[]>(this.URL, heetOptions);
+=======
+    getQuests(): Observable<Order>{
+
+        return this.http.get<Order>(this.URL, heetOptions);
+>>>>>>> 859a1638ec78a99fbb7f2df41418e8cbdde167a2
     }
 
     // getPiz(): Observable<Menu[]>{

@@ -50,4 +50,5 @@ const routes: Routes = [
 
 export class AppRoutingModule {}
 
+
 //this is for telling the code where to go when something is clicked
