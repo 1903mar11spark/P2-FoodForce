@@ -13,13 +13,14 @@ import { CustOrderHistoryComponent } from './cust-order-history/cust-order-histo
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MenuPizzaComponent } from './menu-pizza/menu-pizza.component';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { CustInfoComponent } from './cust-info/cust-info.component';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'customer', component: CustomerMainComponent,
   children: [
-    {path: 'info', component: MyInfoComponent},
+    {path: 'info', component: CustInfoComponent},
     {path: 'status', component: CustOrderStatusComponent},
     {path: 'history', component: CustOrderHistoryComponent},
     {path: 'contactUs', component: ContactUsComponent},

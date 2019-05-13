@@ -1,10 +1,11 @@
-import { Credentials } from 'crypto';
+//import { Credentials } from 'crypto';
 
 export interface Employee{
-    employees: [];
+    //employees: [];
     id: number;
     firstName: string;
     lastName: string;
     reportsTo: number;
-    credentials: Credentials;
+   //create an interface to hold credentials
+   // credentials: Credentials;
 }

@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Order} from '../order';
+import {Observable, of} from 'rxjs';
+import {Menu} from '../menu';
+import { PIZ } from './test-pizza';
 
 
 const heetOptions = {
@@ -24,8 +25,12 @@ export class MenuPizzaService{
 
     URL: string = 'localhost:8084/FoodForce/food/';
 
-    getQuests(): Observable<Order>{
+    getQuests(): Observable<Menu[]>{
  
-        return this.http.get<Order>(this.URL, heetOptions);
+        return this.http.get<Menu[]>(this.URL, heetOptions);
     }
+
+    // getPiz(): Observable<Menu[]>{
+    //     return of(PIZ);
+    // }
 }
