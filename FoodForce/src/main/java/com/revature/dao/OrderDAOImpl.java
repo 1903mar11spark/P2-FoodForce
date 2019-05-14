@@ -85,6 +85,8 @@ public class OrderDAOImpl implements OrderDAO {
 	public Order cancelOrder(Order order) {
 		
 			sessionFactory.getCurrentSession().saveOrUpdate(order);
+			
+			
 		
 		try {
 			
@@ -107,6 +109,7 @@ public class OrderDAOImpl implements OrderDAO {
 		
 	}
 	
+
 	
 //	@Override
 //	public Order deleteO(int orderid) {
@@ -130,6 +133,7 @@ public class OrderDAOImpl implements OrderDAO {
 //		
 //	}
 //	
+
 
 
 	
