@@ -37,7 +37,7 @@ public class FoodController {
 		this.foodService = foodService;
 	}
 
-
+// this method already exist, should be deleted
 //	@GetMapping("/")
 //	@ResponseBody
 //	public List<Food> home() {
