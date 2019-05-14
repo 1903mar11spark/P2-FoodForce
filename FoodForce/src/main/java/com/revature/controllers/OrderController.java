@@ -107,18 +107,14 @@ public class OrderController {
 //		return resp;
 //	}
 //	
-	@DeleteMapping(value = "order/{customerId}")
-	public ResponseEntity<String> deleteOrder(@RequestBody Order order){
+	@DeleteMapping(value = "order/{orderId}")
+	public ResponseEntity<String> deleteOrder(@PathVariable int orderId){
 		ResponseEntity<String> resp = null;
 		try {
-			if(order.getStatus() == "pending") {
-				order.setStatus("Cancelled");
-			}
-			
-//			orderService.deleteOrder(order);
-			resp = new ResponseEntity<>("Order has been deleted!", HttpStatus.OK);
+			orderService.cancelOrder(orderId);
+			resp = new ResponseEntity<>("Order has been cancelled!", HttpStatus.OK);
 		}catch(Exception e) {
-			resp = new ResponseEntity<>("Order failed to delete", HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>("Order failed to cancel", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}
