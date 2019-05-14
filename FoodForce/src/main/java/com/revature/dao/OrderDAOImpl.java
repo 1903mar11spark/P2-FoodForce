@@ -84,6 +84,8 @@ public class OrderDAOImpl implements OrderDAO {
 	public void deleteOrder(Order order) {
 		
 			sessionFactory.getCurrentSession().saveOrUpdate(order);
+			
+			
 		
 //		try {
 //			
@@ -129,8 +131,6 @@ public class OrderDAOImpl implements OrderDAO {
 		
 	}
 	
-
-
 	
 	@SuppressWarnings("unchecked")
 	@Override

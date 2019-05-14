@@ -26,7 +26,7 @@ import com.revature.service.FoodService;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/food")
 public class FoodController {
 	
