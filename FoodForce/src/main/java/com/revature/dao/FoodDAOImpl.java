@@ -66,13 +66,21 @@ public class FoodDAOImpl implements FoodDAO {
 	}
 
 	@Override
-	public void updateFood(Food food) {
-		sessionFactory.getCurrentSession().saveOrUpdate(food);
+	public void updateFood(int id, Food food) {
+		Session s = sessionFactory.getCurrentSession();
+		Food oldFood = s.byId(Food.class).load(id);
+		oldFood.setDescription(food.getDescription());
+		oldFood.setName(food.getName());
+		oldFood.setType(food.getType());
+		System.out.println(oldFood.getDescription());
 	}
 
 	@Override
-	public void deleteFood(Food food) {
-		sessionFactory.getCurrentSession().saveOrUpdate(food);
+	public void deleteFood(int id) {
+		Session s = sessionFactory.getCurrentSession();
+		Food food = s.byId(Food.class).load(id);
+		s.delete(food);
+		
 		
 	}
 
