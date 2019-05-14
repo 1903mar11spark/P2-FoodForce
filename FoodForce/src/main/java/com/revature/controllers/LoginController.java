@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 //import javax.servlet.http.HttpSession;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,7 +58,7 @@ public class LoginController {
 ////		
 //	}
 	
-	/*
+	
 	@GetMapping("/login")
 	public LoginResponse login(@RequestParam(value="username") String un, @RequestParam(value="password") String pw, final HttpSession session) throws UserNotFoundException {
 		
@@ -82,7 +84,7 @@ public class LoginController {
 		
 		throw new UserNotFoundException();
 	}
-	*/
+	
 //	@GetMapping(value="/{id}")
 //	public ResponseEntity<Credential> getCredentialById(@PathVariable int id){
 //		Credential cr = credserv.getCredentialById(1);

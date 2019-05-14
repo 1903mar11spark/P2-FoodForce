@@ -34,13 +34,13 @@ public class FoodService {
 		return foodDAO.getAllFood();
 	}
 	//updatefood
-	public void updateFood(Food food) {
-		foodDAO.updateFood(food);
+	public void updateFood(int id, Food food) {
+		foodDAO.updateFood(id,food);
 	}
 	
 	//delete food
-	public void deleteFood(Food food) {
-		foodDAO.deleteFood(food);
+	public void deleteFood(int id) {
+		foodDAO.deleteFood(id);
 	}
 	
 
