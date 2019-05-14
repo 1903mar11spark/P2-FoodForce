@@ -1,0 +1,47 @@
+{
+    "Customer" : [ {
+        "id": 1,
+        "fname" : "Sam",
+        "lname" : "Albert",
+        "credentialId" : 1
+      }, 
+      {
+        "id": 2,
+        "fname" : "David",
+        "lname" : "Higgins",
+        "credentialId" : 2
+      }
+      {
+        "id": 3,
+        "fname" : "Travis",
+        "lname" : "Pastrana",
+        "credentialId" : 3
+      }
+      {
+        "id": 4,
+        "fname" : "Patrik",
+        "lname" : "Sandell",
+        "credentialId" : 4
+      }
+    ],
+    "Food" : [ {
+        "id" : 1,
+        "description" : "Pizza with four cheeses",
+        "name" : "Cheese Pizza",
+        "type" : "pizza"
+    }
+    {
+        "id" : 2,
+        "description" : "Pizza with four meats",
+        "name" : "Meat Pizza",
+        "type" : "pizza"
+    }
+    {
+        "id" : 3,
+        "description" : "Pizza with four fruits",
+        "name" : "Fruit Pizza",
+        "type" : "pizza"
+    }
+    
+    }]
+}
