@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,12 +45,11 @@ public class FoodController {
 //		System.out.println(food);
 //		return food;
 //	}
-//	
-	
+
 	//create new Food
-	@PostMapping
-	public ResponseEntity<String> createFood(@RequestBody Food food){
-		ResponseEntity<String> resp = null;
+	@PostMapping("/create")
+	public ResponseEntity<?> createFood(@RequestBody Food food){
+		ResponseEntity<?> resp = null;
 		try {
 			foodService.createFood(food);
 			resp = new ResponseEntity<>("Food created succesfully",HttpStatus.OK);
@@ -59,7 +59,7 @@ public class FoodController {
 		return resp;
 	}
 	
-	
+	//I think type should be an Integer so we can pass it in, i cant find a way to pass in a String that works
 	@GetMapping(value = "/{type}")
 	public ResponseEntity<Food> getFoodByType (@PathVariable String type){
 		Food f = foodService.getFoodByType(type);
@@ -70,36 +70,33 @@ public class FoodController {
 		}
 	}
 	
+	
 	@GetMapping(value = "/all")
 	public ResponseEntity<List<Food>> getAllFood(){
 			return new ResponseEntity<>(foodService.getAllFood(),HttpStatus.OK);
 	}
 	
-//	@PostMapping
-//	public ResponseEntity<String> updateFood(@RequestBody Food food){
-//		ResponseEntity<String> resp = null;
-//		try {
-//			foodService.updateFood(food);
-//			resp = new ResponseEntity<>("Food updated succesfully", HttpStatus.OK);
-//		}catch(Exception e) {
-//			resp = new ResponseEntity<>("Failed to update Food", HttpStatus.BAD_REQUEST);
-//		}
-//		return resp;
-//	}
-	
-	@DeleteMapping
-	public ResponseEntity<String> deleteFood(@RequestBody Food food){
-		ResponseEntity<String> resp = null;
+	@PutMapping("/update/{id}")
+	public ResponseEntity<?> updateFood(@PathVariable int id, @RequestBody Food food){
+		ResponseEntity<?> resp = null;
 		try {
-			foodService.deleteFood(food);
-			resp = new ResponseEntity<>("Food deleted succesfully", HttpStatus.OK);
+			foodService.updateFood(id,food);
+			resp = new ResponseEntity<>("Food with id of " + id +  " was updated succesfully", HttpStatus.OK);
 		}catch(Exception e) {
-			resp = new ResponseEntity<>("Failed to delete Food", HttpStatus.BAD_REQUEST)
-;		}
-		
+			resp = new ResponseEntity<>("Failed to update Food", HttpStatus.BAD_REQUEST);
+		}
 		return resp;
 	}
 	
-	
-	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteFood(@PathVariable int id){
+		ResponseEntity<String> resp = null;
+		try {
+			foodService.deleteFood(id);
+			resp = new ResponseEntity<>("Food with id of " + id + " was deleted succesfully", HttpStatus.OK);
+		}catch(Exception e) {
+			resp = new ResponseEntity<>("Failed to delete Food", HttpStatus.BAD_REQUEST);		}
+		
+		return resp;
+	}	
 }

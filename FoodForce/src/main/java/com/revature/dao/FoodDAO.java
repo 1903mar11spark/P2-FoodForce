@@ -9,7 +9,7 @@ public interface FoodDAO {
 	public void createFood(Food food);
 	public Food getFoodByType(String type);
 	public List<Food> getAllFood();
-	public void updateFood(Food food);
-	public void deleteFood(Food food);
+	public void updateFood(int id,Food food);
+	public void deleteFood(int id);
 	
 }
