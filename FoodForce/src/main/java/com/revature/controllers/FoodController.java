@@ -37,14 +37,14 @@ public class FoodController {
 	}
 
 
-	@GetMapping("/")
-	@ResponseBody
-	public List<Food> home() {
-		List<Food> food = foodService.getAllFood();
-		System.out.println(food);
-		return food;
-	}
-	
+//	@GetMapping("/")
+//	@ResponseBody
+//	public List<Food> home() {
+//		List<Food> food = foodService.getAllFood();
+//		System.out.println(food);
+//		return food;
+//	}
+//	
 	
 	//create new Food
 	@PostMapping
