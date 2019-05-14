@@ -3,14 +3,19 @@ package com.revature.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.revature.entities.Employee;
 import com.revature.entities.Food;
 
 @Repository(value = "FoodDAO")
@@ -32,9 +37,24 @@ public class FoodDAOImpl implements FoodDAO {
 
 	@Override
 	public Food getFoodByType(String type) {
-		sessionFactory.getCurrentSession().get(Food.class, type);
-		return null;
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Food> query = builder.createQuery(Food.class);
+			Root<Food> root = query.from(Food.class);
+	        query.select(root).where(builder.equal(root.get("type"), type));
+	        
+	        Query<Food> q = session.createQuery(query);
+	        Food f = q.getSingleResult();
+	        return f;	
+	        
+			} catch (Exception e) {
+		         
+		         return null;
+			}
 	}
+	
+
 
 	@SuppressWarnings("unchecked")
 	@Override
