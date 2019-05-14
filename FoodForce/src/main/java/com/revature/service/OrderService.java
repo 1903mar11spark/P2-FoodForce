@@ -38,9 +38,20 @@ public class OrderService {
 //		orderDAO.updateTotal(order);
 //	}
 	
+	public Order getOrderById(int id) {	
+		return orderDAO.getOrderById(id);
+	}
+
+	
 	//delete order
-	public void deleteOrder(Order order) {
-		orderDAO.deleteOrder(order);
+	public Order cancelOrder(int orderid) {
+		Order order = orderDAO.getOrderById(orderid);
+		
+		if(order.getStatus().equals("pending")) {
+			order.setStatus("cancelled");
+		}
+		orderDAO.updateStatus(order);
+		return order;
 	}
 	
 	public List<Order> pendingOrders(){

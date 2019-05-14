@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.revature.entities.Customer;
+import com.revature.entities.Employee;
 import com.revature.entities.Order;
 
 
@@ -81,43 +82,20 @@ public class OrderDAOImpl implements OrderDAO {
 //	}
 	
 	@Override
-	public void deleteOrder(Order order) {
+	public Order cancelOrder(Order order) {
 		
 			sessionFactory.getCurrentSession().saveOrUpdate(order);
 			
 			
 		
-//		try {
-//			
-//			Session session = sessionFactory.getCurrentSession();
-//			CriteriaBuilder builder = session.getCriteriaBuilder();
-//			CriteriaDelete<Order> delete = builder.createCriteriaDelete(Order.class);
-//			Root<Order> root = delete.from(Order.class);
-//	       	delete.where(builder.equal(root.get("orderid"), order));
-//	       	order.setStatus("cancelled");
-//	        
-//	        Query<Order> q = session.createQuery(delete);
-//	        Order o = (Order) q.list();
-//	        return o;	
-//	        
-//			} catch (Exception e) {
-//			e.printStackTrace();
-//			return null;
-//		         
-//			}
-		
-	}
-	
-	
-	@Override
-	public Order deleteO(int orderid) {
 		try {
 			
 			Session session = sessionFactory.getCurrentSession();
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaDelete<Order> delete = builder.createCriteriaDelete(Order.class);
 			Root<Order> root = delete.from(Order.class);
-	        delete.where(builder.equal(root.get("orderid"), orderid));
+	       	delete.where(builder.equal(root.get("orderid"), order));
+	       	order.setStatus("cancelled");
 	        
 	        Query<Order> q = session.createQuery(delete);
 	        Order o = (Order) q.list();
@@ -131,6 +109,33 @@ public class OrderDAOImpl implements OrderDAO {
 		
 	}
 	
+
+	
+//	@Override
+//	public Order deleteO(int orderid) {
+//		try {
+//			
+//			Session session = sessionFactory.getCurrentSession();
+//			CriteriaBuilder builder = session.getCriteriaBuilder();
+//			CriteriaDelete<Order> delete = builder.createCriteriaDelete(Order.class);
+//			Root<Order> root = delete.from(Order.class);
+//	        delete.where(builder.equal(root.get("orderid"), orderid));
+//	        
+//	        Query<Order> q = session.createQuery(delete);
+//	        Order o = (Order) q.list();
+//	        return o;	
+//	        
+//			} catch (Exception e) {
+//			e.printStackTrace();
+//			return null;
+//		         
+//			}
+//		
+//	}
+//	
+
+
+
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -166,4 +171,14 @@ public class OrderDAOImpl implements OrderDAO {
 		return orders;
 	}
 
+
+	@Override
+	public Order getOrderById(int id) {	
+		Session currentSession = sessionFactory.getCurrentSession();
+       	Order or = currentSession.get(Order.class, id);
+        return or;
+	}
+
+
+	
 }

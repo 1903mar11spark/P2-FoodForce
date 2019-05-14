@@ -37,7 +37,7 @@ public class FoodController {
 		this.foodService = foodService;
 	}
 
-//This method already exists below, should we delete it
+// this method already exist, should be deleted
 //	@GetMapping("/")
 //	@ResponseBody
 //	public List<Food> home() {
@@ -45,8 +45,7 @@ public class FoodController {
 //		System.out.println(food);
 //		return food;
 //	}
-	
-	
+
 	//create new Food
 	@PostMapping("/create")
 	public ResponseEntity<?> createFood(@RequestBody Food food){
