@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entities.Customer;
+import com.revature.entities.Food;
 import com.revature.entities.Order;
 import com.revature.service.CustomerService;
+import com.revature.service.FoodService;
 import com.revature.service.OrderService;
 
 
@@ -30,6 +32,9 @@ public class OrderController {
 	
 	@Autowired
 	private CustomerService cserv;
+	
+	@Autowired
+	private FoodService fserv;
 
 	
 	@PostMapping(value = "order/{customerId}")
@@ -39,6 +44,16 @@ public class OrderController {
 		//calling the orderService class to create a new order
 		try {
 			order.setCustomer(c);
+			if (order.getFood() != null) {
+				for (Food f: order.getFood()) {
+					Food fFromDB = fserv.getFoodById(f.getId());
+					if (fFromDB != null) {
+						f.setDescription(fFromDB.getDescription());
+						f.setName(fFromDB.getName());
+						f.setType(fFromDB.getType());
+					}
+				}
+			}
 			orderService.createOrder(order);
 			resp = new ResponseEntity<>("Order created successfully" , HttpStatus.OK);
 		}catch(Exception e) {
@@ -120,8 +135,6 @@ public class OrderController {
 		}
 		return resp;
 	}
-	
-	
 	
 	
 }

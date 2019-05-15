@@ -43,5 +43,9 @@ public class FoodService {
 		foodDAO.deleteFood(id);
 	}
 	
+	public Food getFoodById(int id) {
+		return foodDAO.getFoodById(id);
+	}
+
 
 }

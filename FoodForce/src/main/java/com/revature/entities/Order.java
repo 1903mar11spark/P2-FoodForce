@@ -58,7 +58,7 @@ public class Order {
 	@JoinColumn(name = "EMPLOYEEID")
 	protected Employee employee;
 	
-	@ManyToMany(cascade = { CascadeType.ALL })
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinTable(
         name = "FOODORDER", 
         joinColumns = { @JoinColumn(name = "ORDERID") }, 
@@ -96,6 +96,12 @@ public class Order {
 		this.employee = employee;
 	}
 	
+	public Set<Food> getFood() {
+		return food;
+	}
+	public void setFood(Set<Food> food) {
+		this.food = food;
+	}
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", status=" + status + ", total=" + total + ", customer=" + customer + ", employee="

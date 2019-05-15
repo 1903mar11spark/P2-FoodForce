@@ -11,5 +11,7 @@ public interface FoodDAO {
 	public List<Food> getAllFood();
 	public void updateFood(int id,Food food);
 	public void deleteFood(int id);
+	public Food getFoodById(int id);
+
 	
 }
