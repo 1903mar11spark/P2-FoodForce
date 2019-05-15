@@ -1,6 +1,36 @@
 <div *ngFor="let comments of comments">
-  <h3>{{comments.id}}</h3>
+  <h4>{{comments.id}}</h4>
   <p>{{comments.status}}</p>
-<!--     <p>{{comments.total}}</p>
- -->
+  <p>${{comments.total}}</p>
+  <button type="submit" (click)="cancel(comments.id)">cancel</button>
 </div>
+<br>
+<br>
+<br>
+
+
+
+
+ <div class="container">
+    <div>
+      <input [(ngModel)]="customerid" type="text" autocomplete="off" placeholder="customerid" id="customerid">
+    </div>
+    <div>
+      <input [(ngModel)]="status" type="text" autocomplete="off" placeholder="status" id="status">
+    </div>
+    <div>
+      <input [(ngModel)]="price" type="text" autocomplete="off" placeholder="price" id="price">
+    </div>
+    <div>
+      <input [(ngModel)]="employeeid" type="text" autocomplete="off" placeholder="employeeid" id="employeeid">
+    </div>
+    <div>
+      <select [(ngModel)]="selectedItem">
+        <option *ngFor="let c of menu" [ngValue]="c">{{c.name}}</option>
+      </select>
+    </div>
+    <div>
+      <button type="button" id="submit" (click)="createOrder()">Complete Order</button>
+    </div>
+  </div>
+
