@@ -13,7 +13,7 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<!-- enable mapping of static resources -->
-	<mvc:resources location="/WEB-INF/static/"
+	<mvc:resources location="/WEB-INF/static/Project2ang"
 		mapping="/static/**"></mvc:resources>
 
 	<!-- set up ViewResolver for JSPs (and other templating engines, like Thymeleaf 

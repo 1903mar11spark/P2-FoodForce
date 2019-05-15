@@ -40,12 +40,12 @@ public class EmployeeService {
 		
 	}
 	
-	public void updateEmployee(Employee empl) {
-		edao.updateEmployee(empl);
+	public void updateEmployee(int id, Employee empl) {
+		edao.updateEmployee(id, empl);
 	}
 	
-	public void deleteEmployee(Employee empl) {
-		edao.deleteEmployee(empl);
+	public void deleteEmployee(int id) {
+		edao.deleteEmployee(id);
 	}
 	
 	

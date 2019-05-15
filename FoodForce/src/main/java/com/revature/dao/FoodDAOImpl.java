@@ -72,7 +72,7 @@ public class FoodDAOImpl implements FoodDAO {
 		oldFood.setDescription(food.getDescription());
 		oldFood.setName(food.getName());
 		oldFood.setType(food.getType());
-		System.out.println(oldFood.getDescription());
+		
 	}
 
 	@Override
