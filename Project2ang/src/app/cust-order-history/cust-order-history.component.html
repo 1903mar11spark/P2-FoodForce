@@ -1,3 +1,16 @@
-<p>
-  cust-order-history works!
-</p>
+<br>
+<h3>Order History</h3>
+<table class="table">
+  <thead>
+    <th>Order Status</th>
+    <th>Total</th>
+    <th>Food</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ord of history">
+      <td>{{ord.status}}</td>
+      <td>{{ord.total}}</td>
+      <td>{{ord.food[0].name}}</td>
+    </tr>
+  </tbody>
+</table>

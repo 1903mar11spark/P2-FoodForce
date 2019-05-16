@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerOrderHistoryService } from './cust-order-history.service';
 
 @Component({
   selector: 'app-cust-order-history',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustOrderHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private customerOrderHistoryService: CustomerOrderHistoryService) { }
+
+history: object[]=[];
+
+
+
+
 
   ngOnInit() {
+
+    
+      this.customerOrderHistoryService.getHistory().then((response)=>{
+        response.json().then((customerOrderHistoryService)=>{
+          this.history = customerOrderHistoryService;
+        });
+      })
+    
+
   }
 
 }

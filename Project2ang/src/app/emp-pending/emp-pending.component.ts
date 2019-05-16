@@ -15,7 +15,7 @@ pends: Order[];
 
   ngOnInit() {
 
-    this.empPendingService.getPend().subscribe( pends => this.pends = pends)
+    this.empPendingService.getPend()
   }
 
 }
