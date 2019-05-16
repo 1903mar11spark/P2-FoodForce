@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Order } from '../order';
 import { EmpAcceptService } from './emp-accepted.service';
 
@@ -15,8 +14,12 @@ acc: Order[];
   constructor(private empAcceptedService: EmpAcceptService) { }
 
   ngOnInit() {
-    this.empAcceptedService.getAccepted().
-    subscribe(acc => this.acc = acc)
+   
+    this.empAcceptedService.getAcc().then((response)=>{
+      response.json().then((empAcceptedService)=>{
+        this.acc = empAcceptedService;
+      });
+    })
   }
 
 }

@@ -15,8 +15,11 @@ comp: Order[];
 
   ngOnInit() {
 
-    this.empCompleteService.getComp()
-      .subscribe(comp => this.comp = comp)
+    this.empCompleteService.getPaid().then((response)=>{
+      response.json().then((empCompleteService)=>{
+        this.comp = empCompleteService;
+      });
+    })
   }
 
 }

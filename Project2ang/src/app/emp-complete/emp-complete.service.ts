@@ -1,9 +1,6 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { ORD } from '../test-orders';
-import { Injectable } from '@angular/core';
-import { Order } from '../order';
 
+import { Injectable } from '@angular/core';
 
 
 const headOptions = {
@@ -24,10 +21,9 @@ export class EmpCompleteService{
 
     constructor (private http:HttpClient){}
 
-    //URL: string = ''
+    getPaid(){
+        return fetch('http://localhost:8084/FoodForce/order/get-by-status/Paid')
 
-    getComp(): Observable<Order[]>{
-        return of(ORD)
     }
 
 }

@@ -6,7 +6,8 @@
   <th>Status</th>
   <th>Total</th>
 <!--pending orders have no employee assigned to them yet-->
-  <th>Customer ID</th>
+  <th>Customer Name</th>
+  <th>Items</th>
   <th>Accept Order</th>
 </thead>
 <tbody>
@@ -14,8 +15,8 @@
     <td>{{ord.id}}</td>
     <td>{{ord.status}}</td>
     <td>{{ord.total}}</td>
- 
-    <td>{{ord.cus.id}}</td>
+    <td>{{ord.customer.firstName}}</td>
+    <td>{{ord.food[0].name}}</td>
     <td><button >Accept</button></td>
   </tr>
 </tbody>

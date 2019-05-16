@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from './cust-info';
 import { CustInfoService } from './cust-info.service';
 
 @Component({
@@ -9,15 +8,25 @@ import { CustInfoService } from './cust-info.service';
 })
 export class CustInfoComponent implements OnInit {
 
-cust: Customer;
+
+  cust: object;
 
 
   constructor(private custInfoService: CustInfoService) { }
 
   ngOnInit() {
 
-    this.custInfoService.getCust().subscribe(cust => this.cust = cust);
 
-  }
+};
 
+getInfo(userId){
+
+fetch('http://localhost:8084/FoodForce/employee/'+userId)
+.then((response)=>{response.json().then((custInfoService)=>{
+      this.cust = custInfoService;
+    });
+  
+  
+    })
+}
 }

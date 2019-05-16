@@ -10,16 +10,18 @@
   <th>Customer Name</th>
   <th>Employee ID</th>
   <th>Employee Name</th>
+  <th>Item</th>
 </thead>
 <tbody>
   <tr *ngFor="let ord of comp">
     <td>{{ord.id}}</td>
     <td>{{ord.status}}</td>
     <td>{{ord.total}}</td>
-    <td>{{ord.cus.id}}</td>
-    <td>{{ord.cus.firstName}} {{ord.cus.lastName}}</td>
-    <td>{{ord.emp.id}}</td>
-    <td>{{ord.emp.firstName}} {{ord.emp.lastName}}</td>
+    <td>{{ord.customer.id}}</td>
+    <td>{{ord.customer.firstName}} </td>
+    <td>{{ord.employee.id}}</td>
+    <td>{{ord.employee.firstName}} </td>
+    <td>{{ord.food[0].name}}</td>
    
 
   </tr>
