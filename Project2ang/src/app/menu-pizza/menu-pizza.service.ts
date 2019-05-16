@@ -28,7 +28,7 @@ export class MenuPizzaService{
 
     getQuests(){
  
-        return fetch('http://localhost:8084/FoodForce/food/all');
+        return fetch('http://localhost:8084/FoodForce/food/Pizza');
 
        // return this.http.get<Menu[]>(this.URL, heetOptions);
     }
