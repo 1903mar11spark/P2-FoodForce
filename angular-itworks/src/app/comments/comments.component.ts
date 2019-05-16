@@ -17,7 +17,7 @@ export class CommentsComponent implements OnInit {
   price: number = 10;
   employeeid: number = 1;
   menu: Array<Object> = [];
-  selectedItem: Object = null;
+  //selectedItem: Object = null;
 
   constructor(private data:DataService) { }
 
@@ -66,7 +66,7 @@ export class CommentsComponent implements OnInit {
           status: this.status,
           total: this.price,
           employee: { id: this.employeeid },
-          food: [{id: this.selectedItem.id}]
+          //food: [{id: this.selectedItem.id}]
         })
       });
     }

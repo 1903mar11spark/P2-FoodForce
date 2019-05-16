@@ -13,34 +13,34 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  base_uri = 'http://localhost:8084/FoodForce'
+  // base_uri = 'http://localhost:8084/FoodForce'
 
-  loginInfo: any = {};
-  angForm: FormGroup;
+  // loginInfo: any = {};
+  // angForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http:HttpClient) {
-    this.createForm();
-  }
+  // constructor(private fb: FormBuilder, private http:HttpClient) {
+  //   this.createForm();
+  // }
 
-  createForm() {
-    this.angForm = this.fb.group({
-      username: ['', Validators.required ],
-      password: ['', Validators.required ]
-    });
-  }
+  // createForm() {
+  //   this.angForm = this.fb.group({
+  //     username: ['', Validators.required ],
+  //     password: ['', Validators.required ]
+  //   });
+  // }
 
-  ngOnInit() {
+   ngOnInit() {
 
-  }
+   }
 
-  doLogin(username, password) {
-    const loginObj = {
-      username: username,
-      password: password
-    }
+  // doLogin(username, password) {
+  //   const loginObj = {
+  //     username: username,
+  //     password: password
+  //   }
 
-     this.http.post(`${this.base_uri}/login`, loginObj)
+  //    this.http.post(`${this.base_uri}/login`, loginObj)
 
-  }
+  // }
 
 }
