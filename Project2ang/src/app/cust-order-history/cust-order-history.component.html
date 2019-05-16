@@ -8,12 +8,14 @@
 <h3>Order History</h3>
 <table class="table">
   <thead>
+    <th>Order Id</th>
     <th>Order Status</th>
     <th>Total</th>
     <th>Food</th>
   </thead>
   <tbody>
-    <tr *ngFor="let ord of history">
+    <tr *ngFor="let ord of history ; let i = index" [attr.data-index]="i">
+      <td>{{ord.id}}</td>
       <td>{{ord.status}}</td>
       <td>{{ord.total}}</td>
       <td>{{ord.food[0].name}}</td>
