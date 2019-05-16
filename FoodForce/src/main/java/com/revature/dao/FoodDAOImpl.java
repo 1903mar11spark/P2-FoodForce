@@ -91,4 +91,12 @@ public class FoodDAOImpl implements FoodDAO {
 
 	}
 
+	@Override
+	public List<Food> getFoodsByType(String type) {
+		List<Food> food = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		food = s.createQuery("from Food where type =" + "'" + type +"'").getResultList();
+		return food;
+	}
+
 }

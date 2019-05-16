@@ -29,6 +29,11 @@ public class FoodService {
 		return foodDAO.getFoodByType(type);
 	}
 	
+	public List<Food> getFoodsByType(String type) {
+		return foodDAO.getFoodsByType(type);
+	}
+	
+	
 	//Get all Foods
 	public List<Food> getAllFood(){
 		return foodDAO.getAllFood();
