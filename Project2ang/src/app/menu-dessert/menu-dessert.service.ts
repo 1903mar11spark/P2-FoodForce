@@ -18,15 +18,15 @@ const heetOptions = {
     providedIn: 'root'
 })
 
-export class MenuPizzaService{
+export class MenuDessertService{
     constructor (private http:HttpClient){}
 
 
     URL: string = 'localhost:8084/FoodForce/food/all/';
 
-    getQuests(){
+    getDesserts(){
  
-        return fetch('http://localhost:8084/FoodForce/food/get-by-type/Pizza');
+        return fetch('http://localhost:8084/FoodForce/food/get-by-type/Dessert');
 
     }
 

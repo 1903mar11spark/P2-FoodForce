@@ -1,3 +1,22 @@
-<p>
-  cust-order-status works!
-</p>
+<br>
+<div>
+  <input  type="text"  #Id id="employeeid">
+</div>
+<div>
+  <button type="button" id="submit" (click)="getStatus(Id.value)">Get Status</button>
+</div>
+<h3>Check Order Status</h3>
+<table class="table">
+  <thead>
+    <th>Order Status</th>
+    <th>Total</th>
+    <th>Food</th>
+  </thead>
+  <tbody>
+    <tr >
+      <td>{{status.status}}</td>
+      <td>{{status.total}}</td>
+      <td>{{status.food[0].name}}</td>
+    </tr>
+  </tbody>
+</table>

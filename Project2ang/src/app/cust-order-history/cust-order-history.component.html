@@ -1,4 +1,10 @@
 <br>
+<div>
+  <input  type="text"  #Id id="employeeid">
+</div>
+<div>
+  <button type="button" id="submit" (click)="getHist(Id.value)">Get Order History</button>
+</div>
 <h3>Order History</h3>
 <table class="table">
   <thead>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerOrderStatusService } from './cust-order-status.service';
 
 @Component({
   selector: 'app-cust-order-status',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustOrderStatusComponent implements OnInit {
 
-  constructor() { }
+  constructor(private custOrdersStatus:CustomerOrderStatusService) { }
+
+status: object[]=[];
 
   ngOnInit() {
+  }
+  getStatus(orderId){
+
+    fetch('http://localhost:8084/FoodForce/order/get-by-id/'+orderId)
+    .then((response)=>{
+      response.json().then((custOrdersStatus)=>{
+        this.status = custOrdersStatus;
+      });
+    })
   }
 
 }

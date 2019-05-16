@@ -1,15 +1,7 @@
 <div class="row">
   <div class="col-sm-3">
     <ul class="nav flex-column">
-      <li class="nav-item">
-
-        <!--instead of href use routerLink=/""-->
-
-        <a class="nav-link ">Home (what would this be?)</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" >Update Info (eventually)</a>
-      </li>
+    
       <li class="nav-item">
         <a class="nav-link" routerLink="/customer/info">View Info</a>
         <!--create moduiles for each option-->
@@ -35,14 +27,12 @@
         <a class="nav-link active" routerLink="/customer/menu/pizza">Pizza</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">Other Menu</a>
+        <a class="nav-link" routerLink="/customer/menu/wings">Wings</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">Items TBD</a>
+        <a class="nav-link" routerLink="/customer/menu/dessert">Desserts</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" routerLink="/customer/checkOut">Check Out</a>
-      </li>
+   
     </ul>
     <router-outlet></router-outlet>
   </div>

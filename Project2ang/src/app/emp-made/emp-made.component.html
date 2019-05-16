@@ -11,14 +11,14 @@
   
 </thead>
 <tbody>
-  <tr *ngFor="let ord of made">
+  <tr *ngFor="let ord of made ; let i = index" [attr.data-index]="i">
     <td>{{ord.id}}</td>
     <td>{{ord.status}}</td>
     <td>{{ord.total}}</td>
     <td>{{ord.customer.firstName}}</td>
     <td>{{ord.employee.firstName}}</td>
     <td>{{ord.food[0].name}}</td>
-    <td><button >Sold</button></td>
+    <td><button (click)="sell(i)">Sold</button></td>
 
   </tr>
 </tbody>

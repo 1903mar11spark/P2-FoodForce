@@ -18,7 +18,7 @@ const heetOptions = {
     providedIn: 'root'
 })
 
-export class MenuPizzaService{
+export class MenuWingsService{
     constructor (private http:HttpClient){}
 
 
@@ -26,7 +26,7 @@ export class MenuPizzaService{
 
     getQuests(){
  
-        return fetch('http://localhost:8084/FoodForce/food/get-by-type/Pizza');
+        return fetch('http://localhost:8084/FoodForce/food/get-by-type/Wings');
 
     }
 

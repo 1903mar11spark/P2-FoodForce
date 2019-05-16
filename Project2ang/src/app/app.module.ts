@@ -23,7 +23,9 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CustInfoComponent } from './cust-info/cust-info.component'
+import { CustInfoComponent } from './cust-info/cust-info.component';
+import { MenuWingsComponent } from './menu-wings/menu-wings.component';
+import { MenuDessertComponent } from './menu-dessert/menu-dessert.component'
 
 
 
@@ -47,7 +49,9 @@ import { CustInfoComponent } from './cust-info/cust-info.component'
     CheckOutComponent,
     LoginFormComponent,
     FooterComponent,
-    CustInfoComponent
+    CustInfoComponent,
+    MenuWingsComponent,
+    MenuDessertComponent
     ],
   imports: [
     HttpClientModule,
