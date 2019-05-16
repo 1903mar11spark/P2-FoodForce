@@ -26,9 +26,11 @@ export class MenuPizzaService{
 
     URL: string = 'localhost:8084/FoodForce/food/all/';
 
-    getQuests(): Observable<Menu[]>{
+    getQuests(){
  
-        return this.http.get<Menu[]>(this.URL, heetOptions);
+        return fetch('http://localhost:8084/FoodForce/food/all');
+
+       // return this.http.get<Menu[]>(this.URL, heetOptions);
     }
 
     // getPiz(): Observable<Menu[]>{
