@@ -64,7 +64,7 @@ public class HomeController {
 //		lr.setUser(emp);
 //		return lr;
 //	}
-	
+
 	@RequestMapping("/food")
 	public Food food() {
 		Food food = new Food();

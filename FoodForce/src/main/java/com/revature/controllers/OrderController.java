@@ -25,6 +25,7 @@ import com.revature.service.OrderService;
 
 @RestController //combines Controller and Request Body. Not sure if RequestBody should go here
 @CrossOrigin
+@RequestMapping(value = "/order")
 public class OrderController {
 	
 	@Autowired
@@ -36,8 +37,9 @@ public class OrderController {
 	@Autowired
 	private FoodService fserv;
 
-	
-	@PostMapping(value = "order/{customerId}")
+	//change path? isnt overlapping with getCustomerOrders
+	//fully functional
+	@PostMapping(value = "/{customerId}")
 	public ResponseEntity<String> createOrder(@PathVariable int customerId, @RequestBody Order order){
 		Customer c = cserv.getCustomerById(customerId);
 		ResponseEntity<String> resp = null;
@@ -62,9 +64,9 @@ public class OrderController {
 		return resp;
 	}
 	
-	
+	//fully functional
 	//get customer orders with customer id, returns list if not null
-	@GetMapping(value = "order/{customerId}")
+	@GetMapping(value = "/{customerId}")
 	public ResponseEntity<List<Order>> getCustomerOrders(@PathVariable int customerId){
 		List<Order> orders = orderService.getCustomerOrders(customerId);
 		if(orders == null) {
@@ -74,31 +76,30 @@ public class OrderController {
 				o.setCustomer(null);
 				o.setEmployee(null);
 			}
-			
 			return new ResponseEntity<>(orders,HttpStatus.OK);
 		}
 	}
 	
 	//show pending orders
-	@GetMapping(value = "order/pending")
+	@GetMapping(value = "/pending")
 	public ResponseEntity<List<Order>> pendingOrders() {
 		return new ResponseEntity<>(orderService.pendingOrders(),HttpStatus.OK);
 	}
 	
 	//show accepted orders by Employee
-	@GetMapping(value = "order/accepted{employeeId}")
+	@GetMapping(value = "/accepted/{employeeId}")
 	public ResponseEntity<List<Order>> acceptedOrdersByEmployee(@PathVariable int employeeId){
 		return new ResponseEntity<>(orderService.acceptedOrdersByEmployee(employeeId),HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "order/get-by-status{status}")
+	@GetMapping(value = "order/get-by-status/{status}")
 		public ResponseEntity<List<Order>> getOrderBystatus(@PathVariable String status){
 		return new ResponseEntity<>(orderService.getOrderByStatus(status),HttpStatus.OK);
 	}
 	
 	
 	//Update status, returns string message
-	@PutMapping
+	@PutMapping("")
 	public ResponseEntity<String> updateStatus(@RequestBody Order order){
 		ResponseEntity<String> resp = null;
 		Order o = new Order();

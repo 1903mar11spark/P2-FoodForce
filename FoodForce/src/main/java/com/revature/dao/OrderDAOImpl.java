@@ -83,13 +83,8 @@ public class OrderDAOImpl implements OrderDAO {
 	
 	@Override
 	public Order cancelOrder(Order order) {
-		
 			sessionFactory.getCurrentSession().saveOrUpdate(order);
-			
-			
-		
 		try {
-			
 			Session session = sessionFactory.getCurrentSession();
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaDelete<Order> delete = builder.createCriteriaDelete(Order.class);
@@ -142,7 +137,10 @@ public class OrderDAOImpl implements OrderDAO {
 	public List<Order> pendingOrders() {
 		List<Order> orders = new ArrayList<>();
 		Session s = sessionFactory.getCurrentSession();
-		orders = s.createQuery("from Orders where STATUS = Pending").getResultList();
+		orders =  s.createQuery("from Orders").getResultList();
+		//FROM Recipe r  WHERE r.user.userId = :id
+		//q.setParameter("status", "pending");
+		System.out.println(orders);
 		
 		return orders;
 	}
