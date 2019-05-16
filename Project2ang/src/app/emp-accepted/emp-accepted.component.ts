@@ -22,4 +22,24 @@ acc: Order[];
     })
   }
 
+  finish(i){
+    //order/change/id
+      let x = this.acc[i].id
+      return fetch('http://localhost:8084/FoodForce/order/change/'+x,{    
+        method: 'PUT',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        status: 'Complete',
+    
+      
+        })
+        
+      })
+    
+    }
+
 }

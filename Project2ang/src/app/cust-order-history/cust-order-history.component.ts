@@ -17,13 +17,10 @@ history: object[]=[];
 
 
   ngOnInit() {
-
+  }
+  getHist(userId){
     
-      this.customerOrderHistoryService.getHistory().then((response)=>{
-        response.json().then((customerOrderHistoryService)=>{
-          this.history = customerOrderHistoryService;
-        });
-      })
+      fetch('http://localhost:8084/FoodForce/order/'+userId)
     
 
   }

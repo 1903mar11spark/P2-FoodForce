@@ -36,9 +36,7 @@ accept(i){
   },
   body: JSON.stringify({
     status: 'Accepted',
-    //total: this.price,
-    //employee: { id: 1 },
-   // food:  this.food
+
   
     })
     

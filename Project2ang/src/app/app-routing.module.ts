@@ -14,6 +14,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MenuPizzaComponent } from './menu-pizza/menu-pizza.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { CustInfoComponent } from './cust-info/cust-info.component';
+import { MenuWingsComponent } from './menu-wings/menu-wings.component';
+import { MenuDessertComponent } from './menu-dessert/menu-dessert.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,8 @@ const routes: Routes = [
     {path: 'menu',
       children:[
         {path: 'pizza', component: MenuPizzaComponent},
+        {path: 'wings', component: MenuWingsComponent},
+        {path: 'dessert', component: MenuDessertComponent}
       ]},
     {path: 'checkOut', component: CheckOutComponent}
     ]},
