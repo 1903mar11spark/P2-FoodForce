@@ -75,6 +75,14 @@ public class OrderDAOImpl implements OrderDAO {
 	public void updateStatus(Order order) {
 		sessionFactory.getCurrentSession().saveOrUpdate(order);
 	}
+	
+	
+	public void changeStatus(int orderId, Order order) {
+		Session s = sessionFactory.getCurrentSession();
+		Order oldOrder = s.byId(Order.class).load(orderId);
+		oldOrder.setStatus(order.getStatus());
+		
+	}
 
 //	@Override
 //	public void updateTotal(Order order) {
@@ -167,9 +175,8 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public Order getOrderById(int id) {	
-		Session currentSession = sessionFactory.getCurrentSession();
-       	Order or = currentSession.get(Order.class, id);
-        return or;
+		return sessionFactory.getCurrentSession().byId(Order.class).load(id);
+       
 	}
 
 

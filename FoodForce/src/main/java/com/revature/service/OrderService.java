@@ -41,9 +41,13 @@ public class OrderService {
 	public Order getOrderById(int id) {	
 		return orderDAO.getOrderById(id);
 	}
+	
+	public void changeStatus(int orderId,Order order) {
+		orderDAO.changeStatus(orderId, order);
+	}
 
 	
-	//delete order
+	//cancel order
 	public Order cancelOrder(int orderid) {
 		Order order = orderDAO.getOrderById(orderid);
 		
