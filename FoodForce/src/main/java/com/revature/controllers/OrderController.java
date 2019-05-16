@@ -23,7 +23,7 @@ import com.revature.service.FoodService;
 import com.revature.service.OrderService;
 
 
-@RestController //combines Controller and Request Body. Not sure if RequestBody should go here
+@RestController //combines Controller and Request Body.
 @CrossOrigin
 @RequestMapping(value = "/order")
 public class OrderController {
@@ -37,7 +37,7 @@ public class OrderController {
 	@Autowired
 	private FoodService fserv;
 
-	//change path? isnt overlapping with getCustomerOrders
+	
 	//fully functional
 	@PostMapping(value = "/{customerId}")
 	public ResponseEntity<String> createOrder(@PathVariable int customerId, @RequestBody Order order){
@@ -80,26 +80,29 @@ public class OrderController {
 		}
 	}
 	
+	//fully functional
 	//show pending orders
 	@GetMapping(value = "/pending")
 	public ResponseEntity<List<Order>> pendingOrders() {
 		return new ResponseEntity<>(orderService.pendingOrders(),HttpStatus.OK);
 	}
 	
+	//fully functional
 	//show accepted orders by Employee
 	@GetMapping(value = "/accepted/{employeeId}")
 	public ResponseEntity<List<Order>> acceptedOrdersByEmployee(@PathVariable int employeeId){
 		return new ResponseEntity<>(orderService.acceptedOrdersByEmployee(employeeId),HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "order/get-by-status/{status}")
+	//fully functional
+	@GetMapping(value = "/get-by-status/{status}")
 		public ResponseEntity<List<Order>> getOrderBystatus(@PathVariable String status){
 		return new ResponseEntity<>(orderService.getOrderByStatus(status),HttpStatus.OK);
 	}
 	
 	
 	//Update status, returns string message
-	@PutMapping("")
+	@PutMapping("/update/{orderId}")
 	public ResponseEntity<String> updateStatus(@RequestBody Order order){
 		ResponseEntity<String> resp = null;
 		Order o = new Order();
@@ -125,7 +128,7 @@ public class OrderController {
 //		return resp;
 //	}
 //	
-	@DeleteMapping(value = "order/{orderId}")
+	@DeleteMapping(value = "/delete/{orderId}")
 	public ResponseEntity<String> deleteOrder(@PathVariable int orderId){
 		ResponseEntity<String> resp = null;
 		try {
