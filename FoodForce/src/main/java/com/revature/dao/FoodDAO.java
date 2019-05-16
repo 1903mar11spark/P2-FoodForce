@@ -13,5 +13,6 @@ public interface FoodDAO {
 	public void deleteFood(int id);
 	public Food getFoodById(int id);
 
+	public List<Food> getFoodsByType(String type);
 	
 }

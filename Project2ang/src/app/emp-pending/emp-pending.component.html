@@ -11,13 +11,13 @@
   <th>Accept Order</th>
 </thead>
 <tbody>
-  <tr *ngFor="let ord of pends">
+  <tr *ngFor="let ord of pends  ; let i = index" [attr.data-index]="i">
     <td>{{ord.id}}</td>
     <td>{{ord.status}}</td>
     <td>{{ord.total}}</td>
     <td>{{ord.customer.firstName}}</td>
     <td>{{ord.food[0].name}}</td>
-    <td><button >Accept</button></td>
+    <td><button (click)="accept(i)">Accept</button></td>
   </tr>
 </tbody>
 
