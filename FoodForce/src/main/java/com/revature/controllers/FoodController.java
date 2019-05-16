@@ -102,4 +102,11 @@ public class FoodController {
 		
 		return resp;
 	}	
+	
+	@GetMapping(value = "/get-by-type/{type}")
+	public ResponseEntity<List<Food>> getFoodsByType(@PathVariable String type){
+		return new ResponseEntity<>(foodService.getFoodsByType(type),HttpStatus.OK);
+}
+	
+	
 }
