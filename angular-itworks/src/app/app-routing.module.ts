@@ -15,15 +15,15 @@ import { UsersComponent } from './users/users.component';
   //path:'page2',
   //component: Page2Component
 
-  //{ path: 'posts', component: PostsComponent },
-  //{ path: 'comments', component: CommentsComponent },
+  //{ path: 'menu', component: PostsComponent },
+  //{ path: 'orders', component: CommentsComponent },
   //{ path: 'users', component: UsersComponent }
 //}
 //];
 
 const routes: Routes = [
-  { path: 'posts', component: PostsComponent },
-  { path: 'comments', component: CommentsComponent },
+  { path: 'menu', component: PostsComponent },
+  { path: 'orders', component: CommentsComponent },
   { path: 'users', component: UsersComponent }
 ];
 

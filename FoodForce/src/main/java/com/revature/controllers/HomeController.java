@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entities.Customer;
@@ -23,13 +25,18 @@ import com.revature.dao.EmployeeDAOImpl;
 import com.revature.service.EmployeeService;
 
 
-@RestController
+
 @Controller
-@RequestMapping("/home")
+@RequestMapping(value = "/home")
 public class HomeController {
 	
 	@Autowired
 	private EmployeeService eserv;
+	
+	@RequestMapping(value="/index", method = RequestMethod.GET)
+	public String App() {
+		return "forward:/static/index.html";
+	}
 	
 //	public HomeController(EmployeeService eserv) {
 //		this.eserv = eserv;
@@ -57,7 +64,7 @@ public class HomeController {
 //		lr.setUser(emp);
 //		return lr;
 //	}
-	
+
 	@RequestMapping("/food")
 	public Food food() {
 		Food food = new Food();
@@ -70,15 +77,15 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping(value="/{id}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
-		Employee emp = eserv.getEmployeeById(id);
-		if (emp == null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		} else {
-			return new ResponseEntity<>(emp, HttpStatus.OK);
-		}
-	}
+//	@GetMapping(value="/{id}")
+//	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
+//		Employee emp = eserv.getEmployeeById(id);
+//		if (emp == null) {
+//			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+//		} else {
+//			return new ResponseEntity<>(emp, HttpStatus.OK);
+//		}
+//	}
 //	
 //	@GetMapping(value="/")
 //	public ResponseEntity<List<Employee>> allEmployees() {

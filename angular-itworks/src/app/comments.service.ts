@@ -12,15 +12,7 @@ export class DataService {
 
   GetComments(){
 
-      //return this.http.get('https://jsonplaceholder.typicode.com/posts');
-
-
-
       return fetch('http://localhost:8084/FoodForce/order/1');
-
-
-
-
 
   }
 }

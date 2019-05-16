@@ -83,13 +83,8 @@ public class OrderDAOImpl implements OrderDAO {
 	
 	@Override
 	public Order cancelOrder(Order order) {
-		
 			sessionFactory.getCurrentSession().saveOrUpdate(order);
-			
-			
-		
 		try {
-			
 			Session session = sessionFactory.getCurrentSession();
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaDelete<Order> delete = builder.createCriteriaDelete(Order.class);
@@ -134,39 +129,37 @@ public class OrderDAOImpl implements OrderDAO {
 //	}
 //	
 
-
-
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Order> pendingOrders() {
 		List<Order> orders = new ArrayList<>();
 		Session s = sessionFactory.getCurrentSession();
-		orders = s.createQuery("from Orders where STATUS = Pending").getResultList();
+		orders =  s.createQuery("from Order where status = 'pending'").getResultList();
+		//FROM Recipe r  WHERE r.user.userId = :id
+		//q.setParameter("status", "pending");
+		System.out.println(orders);
 		
 		return orders;
 	}
 
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Order> acceptedOrdersByEmployee(int employeeId) {
 		List<Order> orders = new ArrayList<>();
 		Session s = sessionFactory.getCurrentSession();
-		Query q = s.createQuery("from Order where STATUS = accepted and EMPLOYEEID = :emplId");
-		q.setParameter("emplId", employeeId);
+		Query q = s.createQuery("from Order where status = 'accepted' and employee =" + employeeId);
 		orders = q.getResultList();
 		return orders;
 	}
 
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Order> getOrderByStatus(String status) {
 		List<Order> orders = new ArrayList<>();
 		Session s = sessionFactory.getCurrentSession();
-		Query q = s.createQuery("from Orders where STATUS = :statusType");
-		q.setParameter("statusType", status);
+		Query q = s.createQuery("from Order where status =" + "'" +status+"'");
 		orders = q.getResultList();
 		return orders;
 	}

@@ -26,8 +26,12 @@ export class EmpPendingService{
 
     //URL: string = ''
 
-    getPend(): Observable<Order[]>{
-        return of(ORD)
+    // getPend(): Observable<Order[]>{
+    //     return of(ORD)
+    // }
+    getPend(){
+        return fetch('')
+
     }
 
 }

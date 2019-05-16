@@ -26,7 +26,7 @@ import com.revature.service.FoodService;
 
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping(value = "/food")
 public class FoodController {
 	
@@ -46,20 +46,21 @@ public class FoodController {
 //		return food;
 //	}
 
+	//fully functional
 	//create new Food
 	@PostMapping("/create")
 	public ResponseEntity<?> createFood(@RequestBody Food food){
 		ResponseEntity<?> resp = null;
 		try {
 			foodService.createFood(food);
-			resp = new ResponseEntity<>("Food created succesfully",HttpStatus.OK);
+			resp = new ResponseEntity<>("Food " + food + "created succesfully",HttpStatus.OK);
 		}catch(Exception e) {
 			resp = new ResponseEntity<>("Failed to create food",HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}
 	
-	//I think type should be an Integer so we can pass it in, i cant find a way to pass in a String that works
+	//fully functional
 	@GetMapping(value = "/{type}")
 	public ResponseEntity<Food> getFoodByType (@PathVariable String type){
 		Food f = foodService.getFoodByType(type);
@@ -70,25 +71,27 @@ public class FoodController {
 		}
 	}
 	
-	
+	//fully functional
 	@GetMapping(value = "/all")
 	public ResponseEntity<List<Food>> getAllFood(){
 			return new ResponseEntity<>(foodService.getAllFood(),HttpStatus.OK);
 	}
 	
-	@PutMapping("/update/{id}")
+	//fully functional
+	@PutMapping(value = "/update/{id}")
 	public ResponseEntity<?> updateFood(@PathVariable int id, @RequestBody Food food){
 		ResponseEntity<?> resp = null;
 		try {
 			foodService.updateFood(id,food);
-			resp = new ResponseEntity<>("Food with id of " + id +  " was updated succesfully", HttpStatus.OK);
+			resp = new ResponseEntity<>(food.getName() +  " was updated succesfully", HttpStatus.OK);
 		}catch(Exception e) {
 			resp = new ResponseEntity<>("Failed to update Food", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	//fully functional
+	@DeleteMapping(value = "/delete/{id}")
 	public ResponseEntity<String> deleteFood(@PathVariable int id){
 		ResponseEntity<String> resp = null;
 		try {
