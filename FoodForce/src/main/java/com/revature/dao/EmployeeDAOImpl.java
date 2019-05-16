@@ -37,6 +37,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return emp;
 	}
 	
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> allEmployees() {
@@ -46,9 +47,13 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return emp;
 	}
 
+	
 	@Override
 	public Employee createEmployee(Employee empl) {
+		sessionFactory.getCurrentSession().saveOrUpdate(empl);
 		return empl;
+		
+		
 //		sessionFactory.getCurrentSession().persist(empl);
 //		try {
 //			Session session = sessionFactory.getCurrentSession();
@@ -69,13 +74,19 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 
 	@Override
-	public void updateEmployee(Employee empl) {
-		sessionFactory.getCurrentSession().saveOrUpdate(empl);		
+	public void updateEmployee(int id, Employee empl) {
+		Session s = sessionFactory.getCurrentSession();
+		Employee oldEmpl = s.byId(Employee.class).load(id);
+		oldEmpl.setFirstName(empl.getFirstName());
+		oldEmpl.setLastName(empl.getLastName());
+		oldEmpl.setReportsTo(empl.getReportsTo());
 	}
 
 	@Override
-	public void deleteEmployee(Employee empl) {
-		sessionFactory.getCurrentSession().delete(empl);
+	public void deleteEmployee(int id) {
+		Session s = sessionFactory.getCurrentSession();
+		Employee empl = s.byId(Employee.class).load(id);
+		s.delete(empl);
 	}
 
 	@Override

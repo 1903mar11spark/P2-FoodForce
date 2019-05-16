@@ -15,7 +15,6 @@ public interface OrderDAO {
 	public Order getOrderById(int id);
 
 
-	
 	//Adding new methods May 12, 2019
 	public List<Order> pendingOrders();
 	public List<Order> acceptedOrdersByEmployee(int employeeId);
