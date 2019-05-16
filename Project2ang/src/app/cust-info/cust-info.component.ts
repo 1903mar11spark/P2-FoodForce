@@ -21,7 +21,7 @@ export class CustInfoComponent implements OnInit {
 
 getInfo(userId){
 
-fetch('http://localhost:8084/FoodForce/employee/'+userId)
+fetch('http://localhost:8084/FoodForce/customer/get-by-id/'+userId)
 .then((response)=>{response.json().then((custInfoService)=>{
       this.cust = custInfoService;
     });

@@ -24,4 +24,25 @@ pends: Order[];
  console.log(this.pends);
 }
 
+accept(i){
+//order/change/id
+  let x = this.pends[i].id
+  return fetch('http://localhost:8084/FoodForce/order/change/'+x,{    
+    method: 'PUT',
+  mode: 'cors',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    status: 'Accepted',
+    //total: this.price,
+    //employee: { id: 1 },
+   // food:  this.food
+  
+    })
+    
+  })
+
+}
 }
