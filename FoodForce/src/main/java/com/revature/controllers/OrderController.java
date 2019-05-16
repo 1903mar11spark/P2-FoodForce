@@ -100,15 +100,14 @@ public class OrderController {
 		return new ResponseEntity<>(orderService.getOrderByStatus(status),HttpStatus.OK);
 	}
 	
-	
+	//fully functional
 	//Update status, returns string message
-	@PutMapping("/update/{orderId}")
-	public ResponseEntity<String> updateStatus(@RequestBody Order order){
+	@PutMapping("/change/{orderId}")
+	public ResponseEntity<String> changeStatus(@PathVariable int orderId,@RequestBody Order order){
 		ResponseEntity<String> resp = null;
-		Order o = new Order();
 		try {
-			orderService.updateStatus(order);			
-			resp = new ResponseEntity<>("Order updated successfully",HttpStatus.OK);
+			orderService.changeStatus(orderId,order);			
+			resp = new ResponseEntity<>("Order status "+ order.getStatus()+ " updated successfully",HttpStatus.OK);
 		}catch(Exception e) {
 			resp = new ResponseEntity<>("Failed to update order",HttpStatus.BAD_REQUEST);
 		}
@@ -116,20 +115,9 @@ public class OrderController {
 		return resp;
 	}
 	
-//	@PutMapping
-//	public ResponseEntity<String> updateTotal(@RequestBody Order order){
-//		ResponseEntity<String> resp = null;
-//		try {
-//			orderService.updateTotal(order);
-//			resp = new ResponseEntity<>("Total has been updated!", HttpStatus.OK);
-//		}catch(Exception e) {
-//			resp = new ResponseEntity<>("Failed to update order",HttpStatus.BAD_REQUEST);
-//		}
-//		return resp;
-//	}
-//	
-	@DeleteMapping(value = "/delete/{orderId}")
-	public ResponseEntity<String> deleteOrder(@PathVariable int orderId){
+
+	@DeleteMapping(value = "/cancel/{orderId}")
+	public ResponseEntity<String> cancelOrder(@PathVariable int orderId){
 		ResponseEntity<String> resp = null;
 		try {
 			orderService.cancelOrder(orderId);
@@ -140,5 +128,14 @@ public class OrderController {
 		return resp;
 	}
 	
-	
+	//fully functional
+	@GetMapping(value = "/get-by-id/{orderId}")
+	public ResponseEntity<Order> getOrderById(@PathVariable int orderId){
+		Order o = orderService.getOrderById(orderId);
+			if(o == null) {
+				return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+			}else {
+				return new ResponseEntity<>(o, HttpStatus.OK);
+			}
+	}
 }

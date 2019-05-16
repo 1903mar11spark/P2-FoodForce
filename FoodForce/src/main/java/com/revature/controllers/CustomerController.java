@@ -1,19 +1,46 @@
 package com.revature.controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.ArrayList;
+import java.util.List;
 
-@Controller
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.revature.entities.Customer;
+import com.revature.service.CustomerService;
+
+@RestController
+@CrossOrigin
 @RequestMapping("/customer")
 public class CustomerController {
 
-	public CustomerController() {
-		// TODO Auto-generated constructor stub
-	}
+	@Autowired
+	private CustomerService customerService;
 
-	//end points for Jackson json go here to link angular to java.  Youtube it. 
+	//fully functional
+	@GetMapping(value = "/get-by-id/{customerId}")
+	public ResponseEntity<Customer> getCustomerById(@PathVariable int customerId){
+		Customer customer = customerService.getCustomerById(customerId);
+		if(customer == null) {
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}else {
+			return new ResponseEntity<>(customer, HttpStatus.OK);
+		}
+	}
 	
-	//small change to file, see if it shows up
+	@GetMapping(value = "/all")
+	public ResponseEntity<List<Customer>> allCustomers(){
+		return new ResponseEntity<>(customerService.allCustomers(),HttpStatus.OK);
+	}
+	
+	
+	
 }
 
 

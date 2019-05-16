@@ -30,8 +30,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
+	
+	
+	
+	
 	public Customer getCustomerById(int id) {
-		return sessionFactory.getCurrentSession().byId(Customer.class).getReference(id);
+		return sessionFactory.getCurrentSession().byId(Customer.class).load(id);
 	}
 
 	@Override
@@ -40,8 +44,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	}
 	
-	//trying to merge
-
 	@Override
 	public Customer getCustomerByCredentialId(int id) {
 		try {
@@ -63,25 +65,28 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public List<Customer> allCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Customer> custList = new ArrayList<>();
+		Session s = sessionFactory.getCurrentSession();
+		custList = s.createQuery("from Customer").getResultList();
+		
+		return custList;
 	}
 
 	@Override
 	public void createCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void updateCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void deleteCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
