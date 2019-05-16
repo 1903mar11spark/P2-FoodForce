@@ -4,20 +4,19 @@
 <thead>
   <th>Order ID</th>
   <th>Status</th>
-  <th>Total</th>
-
-  <th>Customer ID</th>
-  <th>Employee ID</th>
   <th>Employee Name</th>
+  <th>Item</th>
+  <th>Details</th>
+  <th>Finish</th>
 </thead>
 <tbody>
   <tr *ngFor="let ord of acc">
     <td>{{ord.id}}</td>
     <td>{{ord.status}}</td>
-    <td>{{ord.total}}</td>
-    <td>{{ord.cus.id}}</td>
-    <td>{{ord.emp.id}}</td>
-    <td>{{ord.emp.firstName}} {{ord.emp.lastName}}</td>
+
+    <td>{{ord.employee.firstName}}</td>
+    <td>{{ord.food[0].name}}</td>
+    <td>{{ord.food[0].description}}</td>
     <td><button >Finish</button></td>
 
   </tr>

@@ -1,8 +1,7 @@
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import { Customer } from './cust-info';
 import { Observable, of } from 'rxjs';
-import { Cust } from './test-cust';
+
 
 
 const headersOptions = {
@@ -21,16 +20,6 @@ const headersOptions = {
 
 export class CustInfoService{
     constructor (private http:HttpClient){}
-//change URL
-    URL: string = 'http://localhost:8084/FoodForce/employee/all';
 
-    getCusts(): Observable<Customer>{
-
-        return this.http.get<Customer>(this.URL, headersOptions);
-    }
-
-    getCust(): Observable<Customer>{
-        return of(Cust);
-    }
 
 }

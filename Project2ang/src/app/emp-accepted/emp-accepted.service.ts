@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { of, Observable } from 'rxjs';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
-import { Order } from '../order';
-import { ORD } from '../test-orders';
+
 
 const headOptions = {
     headers: new HttpHeaders({  
@@ -12,7 +11,7 @@ const headOptions = {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     })
-}
+} 
 
 @Injectable({
     providedIn: 'root'
@@ -22,9 +21,9 @@ export class EmpAcceptService{
 
     constructor (private http:HttpClient){}
 
-    //URL; string
+    getAcc(){
+        return fetch('http://localhost:8084/FoodForce/order/get-by-status/Accepted')
 
-    getAccepted(): Observable<Order[]>{
-        return of(ORD)
     }
+
 }

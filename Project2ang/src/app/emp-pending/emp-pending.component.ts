@@ -13,9 +13,15 @@ pends: Order[];
 
   constructor(private empPendingService: EmpPendingService) { }
 
-  ngOnInit() {
+  ngOnInit() {   
 
-    this.empPendingService.getPend()
-  }
+    this.empPendingService.getPend().then((response)=>{
+      response.json().then((empPendingService)=>{
+        this.pends = empPendingService;
+      });
+    })
+
+ console.log(this.pends);
+}
 
 }

@@ -1,3 +1,9 @@
+<div>
+     <input  type="text"  #Id id="employeeid">
+   </div>
+   <div>
+     <button type="button" id="submit" (click)="getInfo(Id.value)">Complete Order</button>
+   </div>
 <h2>Welcome {{cust.firstName}}</h2>
 <p>
      Customer Id: {{cust.id}} <br>

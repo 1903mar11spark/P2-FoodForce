@@ -15,9 +15,12 @@ made: Order[];
 
   ngOnInit() {
 
-this.empMadeService.getMade()
-    .subscribe( made => this.made = made)
 
+    this.empMadeService.getMade().then((response)=>{
+      response.json().then((empMadeService)=>{
+        this.made = empMadeService;
+      });
+    })
   }
 
 }

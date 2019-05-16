@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Employee } from './emp-info';
+
 import { EmpInfoService } from './emp-info.service';
 
 
@@ -13,23 +13,24 @@ import { EmpInfoService } from './emp-info.service';
 export class MyInfoComponent implements OnInit {
 
 
-empls: Employee;
+empls: object;
 
-public emps: Employee;
 
   constructor(private empInfoService: EmpInfoService) { }
 
   ngOnInit() {
 
-this.empInfoService.getEm()
-.subscribe(empls => this.empls = empls);
 
-    // this .empInfoService.getEmps().subscribe(emps =>{
-    //   this.emps=emps
-    // });
+};
 
-  }
+getInfo(userId){
 
-
-
+fetch('http://localhost:8084/FoodForce/employee/'+userId)
+.then((response)=>{response.json().then((empInfoService)=>{
+      this.empls = empInfoService;
+    });
+  
+  
+    })
+}
 }
